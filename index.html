@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color and Coaching 컬러앤코칭 - 자아 인식 및 관계 코칭</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Meta Information -->
+    <meta name="description" content="컬러앤코칭은 DISC, FIRO-B, 컬러 미러 시스템을 통해 개인의 자아 인식, 커플 관계, 조직 팀워크 향상을 위한 진단, 리딩, 교육 프로그램을 전문적으로 제공하는 웹사이트입니다.">
+    <meta name="keywords" content="컬러앤코칭, DISC, FIRO-B, 컬러 미러, 심리 진단, 관계 코칭, 팀워크, 자아 인식, 기업 강의, 그룹 교육, 글로벌 코칭, 워크숍, 진단, 리딩, 교육">
+    
+    <meta property="og:title" content="Color and Coaching 컬러앤코칭 - 자아 인식 및 관계 코칭">
+    <meta property="og:description" content="DISC, FIRO-B, 컬러 미러 전문가의 맞춤형 코칭으로 당신의 성장을 시작하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.colorandcoaching.co.kr">
+
+    <!-- 1. 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Tailwind Configuration for custom colors (CSS 클래스 사용을 위해 HTML 파일에 유지)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-primary': '#B87333', /* Copper */
+                        'warm-secondary': '#CD7F32', /* Bronze */
+                        'soft-beige': '#f5e7dc', /* Soft light brown/beige */
+                        'copper-dark': '#8B4513', /* SaddleBrown for deeper accents */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- 브랜드명: Color and Coaching 컬러앤코칭 -->
+            <a href="#home" class="text-2xl font-extrabold text-warm-primary rounded-lg p-1">
+                Color and Coaching 컬러앤코칭
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none focus:ring-2 focus:ring-warm-primary">
+                <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden sm:flex space-x-6 text-lg font-medium">
+                <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
+                <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
+                <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
+                <a href="#contact" class="text-gray-600 hover:text-warm-primary transition duration-300">문의</a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
+            <nav class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
+                <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">진단 도구</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-white py-20 md:py-32 text-center border-b border-soft-beige">
+        <div class="max-w-4xl mx-auto px-4">
+            <!-- 브랜드명: 컬러앤코칭 -->
+            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+                <span class="text-gradient">당신의 성장을 위한</span> 컬러앤코칭
+            </h1>
+            <!-- 수정: '전문 코칭' 유지 -->
+            <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                DISC, FIRO-B, 컬러 미러 시스템을 통해 <br class="sm:hidden">개인, 커플, 조직의 잠재력을 일깨우는 전문 코칭을 제공합니다.
+            </p>
+            <a href="#contact" class="inline-block px-8 py-3 bg-warm-primary text-white text-lg font-semibold rounded-full shadow-xl hover:bg-copper-dark transition duration-300 transform hover:scale-105">
+                코칭 문의하기
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section (4 Columns) -->
+    <section id="services" class="py-16 md:py-24 bg-soft-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
+                컬러앤코칭 주요 서비스
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- 1. 개인 자아 인식 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://image.pollinations.ai/prompt/a diverse individual (multiple races/ethnicities represented, e.g., Asian, Caucasian, African, Hispanic) in their 30s having a deep, reflective individual coaching session, soft lighting, warm brown and copper tones, professional, global, self-awareness, personal growth" 
+                         alt="다인종 개인 코칭 및 자아 인식 진단 이미지" class="w-full h-auto rounded-lg mb-4 shadow-md object-cover aspect-video" onerror="this.onerror=null; this.src='https://placehold.co/600x400/f5e7dc/B87333?text=개인+자아+인식'">
+                    <div class="text-4xl mb-2 text-warm-secondary flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">개인 자아 인식 코칭</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        DISC와 Colour Mirrors를 활용하여 자신의 행동 패턴, 강점, 숨겨진 잠재력을 깊이 이해하고 진정한 나를 발견하도록 코칭합니다.
+                    </p>
+                </div>
+
+                <!-- 2. 커플 관계 개선 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://image.pollinations.ai/prompt/a diverse couple (multiple races/ethnicities represented, e.g., Asian, Caucasian, African, Hispanic) in their 30s-40s engaged in a constructive relationship coaching session, warm brown and copper tones, inviting atmosphere, global, communication, understanding, connection, relationship improvement" 
+                         alt="다인종 커플 관계 개선 및 코칭 이미지" class="w-full h-auto rounded-lg mb-4 shadow-md object-cover aspect-video" onerror="this.onerror=null; this.src='https://placehold.co/600x400/f5e7dc/B87333?text=커플+관계+개선'">
+                    <div class="text-4xl mb-2 text-warm-primary flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M5.5 3.5v5"/><path d="M2.5 6.5h5"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">커플 관계 개선 코칭</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        FIRO-B와 DISC 진단을 통해 서로의 관계 욕구와 행동 스타일 차이를 파악하고 건강한 소통 방식을 찾도록 돕습니다.
+                    </p>
+                </div>
+
+                <!-- 3. 조직 팀워크 향상 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://image.pollinations.ai/prompt/a diverse team of 4-5 people (multiple races/ethnicities represented) in a bright, modern office setting, actively participating in a team building or organizational coaching session, warm brown and copper tones, collaboration, dynamic interaction, professionalism, team growth, global" 
+                         alt="다인종 조직 및 팀워크 향상 코칭 이미지" class="w-full h-auto rounded-lg mb-4 shadow-md object-cover aspect-video" onerror="this.onerror=null; this.src='https://placehold.co/600x400/f5e7dc/B87333?text=팀워크+향상'">
+                    <div class="text-4xl mb-2 text-warm-primary flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">조직 팀워크 코칭</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        DISC, FIRO-B 등 전문 진단 도구를 활용하여 팀원 간 역동성 분석 및 최적의 팀 빌딩 전략을 제시하고 실행을 코칭합니다.
+                    </p>
+                </div>
+                
+                <!-- 4. 기업/그룹 맞춤형 강의 및 워크숍 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://image.pollinations.ai/prompt/a diverse group of people (multiple races/ethnicities represented) engaged in an energetic and interactive corporate lecture or workshop, presented by a charismatic speaker. The setting is a modern conference room with warm brown and copper accents, emphasizing learning, engagement, and professional development, global" 
+                         alt="다인종 기업/그룹 강의 및 워크숍 이미지" class="w-full h-auto rounded-lg mb-4 shadow-md object-cover aspect-video" onerror="this.onerror=null; this.src='https://placehold.co/600x400/f5e7dc/B87333?text=맞춤형+강의'">
+                    <div class="text-4xl mb-2 text-warm-secondary flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">기업/그룹 맞춤형 강의 및 워크숍</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        조직의 특성에 맞는 DISC, FIRO-B 기반의 맞춤형 강의 및 워크숍을 기획하고 진행하여 실질적인 성장을 지원합니다.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Tools Section -->
+    <section id="assessments" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
+                컬러앤코칭 진단 도구 소개
+            </h2>
+
+            <div class="space-y-12">
+                
+                <!-- DISC -->
+                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
+                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
+                        <span class="text-5xl font-extrabold text-warm-primary block">DISC</span>
+                        <p class="text-sm text-gray-500 mt-1">행동 유형 진단</p>
+                    </div>
+                    <div class="md:ml-8 md:w-3/4">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">DISC 행동 유형 진단</h3>
+                        <p class="text-gray-600">
+                            개인의 지배형(D), 사교형(I), 안정형(S), 신중형(C) 네 가지 행동 스타일을 측정하여, 자신의 강점과 약점, **자기 이해**, 타인과의 상호작용 방식을 이해하게 돕는 국제적인 진단 도구입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FIRO-B -->
+                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
+                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
+                        <span class="text-5xl font-extrabold text-warm-secondary block">FIRO-B</span>
+                        <p class="text-sm text-gray-500 mt-1">관계 욕구 진단</p>
+                    </div>
+                    <div class="md:ml-8 md:w-3/4">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">FIRO-B 관계 욕구 진단</h3>
+                        <p class="text-gray-600">
+                            인간관계에서 충족시키고자 하는 포함(Inclusion), 통제(Control), 애정(Affection)의 세 가지 욕구를 측정합니다. 특히 커플이나 조직 내에서 발생하는 관계적 갈등의 근본 원인을 파악하는 데 유용합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 컬러 미러 시스템 -->
+                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
+                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
+                        <span class="text-5xl font-extrabold text-red-500 block">컬러 미러</span>
+                        <p class="text-sm text-gray-500 mt-1">내면 심리 진단</p>
+                    </div>
+                    <div class="md:ml-8 md:w-3/4">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">컬러 미러 시스템</h3>
+                        <p class="text-gray-600">
+                            다채로운 색상 오일과 에센스를 통해 현재의 감정 상태, 무의식적인 패턴, 삶의 여정을 직관적으로 탐색하고, 내면의 치유와 변화를 촉진하는 심리 분석 및 코칭 시스템입니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact & Consultation Form -->
+    <section id="contact" class="py-16 md:py-24 bg-warm-primary">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                지금, 당신의 성장 여정을 시작하세요
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                개인, 커플, 조직 모두 환영합니다. 컬러앤코칭이 당신의 '내면의 연결'을 도와드리겠습니다.
+            </p>
+            
+            <form id="contact-form" class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl text-left space-y-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">코칭 문의하기</h3>
+                
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">성함 / 연락처</label>
+                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-soft-beige rounded-lg shadow-sm focus:ring-warm-primary focus:border-warm-primary transition duration-300">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">이메일 주소</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-soft-beige rounded-lg shadow-sm focus:ring-warm-primary focus:border-warm-primary transition duration-300">
+                </div>
+                
+                <div>
+                    <label for="type" class="block text-sm font-medium text-gray-700">코칭/문의 유형</label>
+                    <select id="type" name="type" required class="mt-1 block w-full px-4 py-3 border border-soft-beige rounded-lg shadow-sm focus:ring-warm-primary focus:border-warm-primary transition duration-300">
+                        <option value="">-- 선택하세요 --</option>
+                        <option value="individual">개인 코칭 (자아 인식)</option>
+                        <option value="couple">커플 코칭 (관계 개선)</option>
+                        <option value="team">조직 팀워크 코칭</option>
+                        <option value="corporate_lecture">기업/그룹 강의 및 워크숍 문의</option> 
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">문의 내용</label>
+                    <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 border border-soft-beige rounded-lg shadow-sm focus:ring-warm-primary focus:border-warm-primary transition duration-300"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full mt-6 px-4 py-3 bg-warm-secondary text-gray-800 font-semibold rounded-lg shadow-md hover:bg-amber-600 transition duration-300 transform hover:scale-105">
+                    문의 요청 보내기
+                </button>
+
+                <!-- Custom Message Box for Feedback -->
+                <div id="message-box" class="hidden mt-4 p-4 rounded-lg text-sm text-center font-medium" role="alert"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-copper-dark py-10 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- 브랜드명: Color and Coaching 컬러앤코칭 -->
+            <h4 class="text-xl font-bold mb-2">Color and Coaching 컬러앤코칭</h4>
+            <p class="text-gray-300 mb-4">내면의 연결, 삶의 변화</p>
+            <div class="text-sm text-gray-400 space-y-1">
+                <p>대표: (홍길동)</p>
+                <p>이메일: contact@colorandcoaching.co.kr</p>
+                <p>전화번호: 010-1234-5678</p>
+                <p>사업자 등록번호: [등록번호]</p>
+                <p>통신판매업 신고: [신고번호]</p> 
+                <p class="mt-4">&copy; 2024 Color and Coaching. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 2. 외부 JavaScript 파일 연결 -->
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ const API_KEY = ""; // Canvas will provide this at runtime
 
 /**
  * Retries the fetch request with exponential backoff.
+ * API 호출이 실패하거나 속도 제한에 걸렸을 때 재시도하는 로직입니다.
  * @param {string} url The API endpoint URL.
  * @param {object} options Fetch request options.
  * @param {number} maxRetries Maximum number of retries.
@@ -37,6 +38,7 @@ async function fetchWithRetry(url, options, maxRetries = 3) {
 
 /**
  * Generates an image using the Gemini API and updates the corresponding container.
+ * Gemini API를 사용하여 이미지를 생성하고 HTML 컨테이너를 업데이트합니다.
  * @param {string} containerId The ID of the HTML element to hold the image.
  * @param {string} prompt The text prompt for image generation.
  */
@@ -44,7 +46,7 @@ async function generateImage(containerId, prompt) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Show loading spinner
+    // Show loading spinner (로딩 스피너 표시)
     container.innerHTML = '<div class="spinner"></div>';
     container.classList.add('flex', 'items-center', 'justify-center');
 
@@ -70,13 +72,13 @@ async function generateImage(containerId, prompt) {
             const base64Data = result.predictions[0].bytesBase64Encoded;
             const imageUrl = `data:image/png;base64,${base64Data}`;
             
-            // Create and insert the image element
+            // Create and insert the image element (이미지 엘리먼트 생성 및 삽입)
             const img = new Image();
             img.src = imageUrl;
             img.alt = prompt;
             img.className = 'w-full h-full object-cover rounded-lg shadow-md';
             
-            // Clear spinner and insert image
+            // Clear spinner and insert image (스피너 제거 후 이미지 삽입)
             container.innerHTML = '';
             container.appendChild(img);
             container.classList.remove('flex', 'items-center', 'justify-center');

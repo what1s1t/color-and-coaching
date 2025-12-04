@@ -1,55 +1,129 @@
-// script.js - 웹사이트의 동적인 기능을 처리합니다.
+// --------------------------------------------------------
+// Global Constants for Gemini Image Generation
+// --------------------------------------------------------
+const IMAGE_MODEL = 'imagen-4.0-generate-001';
+const API_KEY = ""; // Canvas will provide this at runtime
 
-// Mobile Menu Toggle 기능
-const menuButton = document.getElementById('menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = mobileMenu.querySelectorAll('a');
+/**
+ * Retries the fetch request with exponential backoff.
+ * @param {string} url The API endpoint URL.
+ * @param {object} options Fetch request options.
+ * @param {number} maxRetries Maximum number of retries.
+ * @returns {Promise<Response>} The successful response.
+ */
+async function fetchWithRetry(url, options, maxRetries = 3) {
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const response = await fetch(url, options);
+            if (response.ok) {
+                return response;
+            } else if (response.status === 429) { // Rate limit or transient error
+                if (i < maxRetries - 1) {
+                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    continue;
+                }
+            }
+            throw new Error(`API request failed with status ${response.status}`);
+        } catch (error) {
+            if (i === maxRetries - 1) {
+                throw error;
+            }
+            const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+}
 
-if (menuButton && mobileMenu) {
-    // 모바일 메뉴 표시/숨기기 토글
-    menuButton.addEventListener('click', () => {
+/**
+ * Generates an image using the Gemini API and updates the corresponding container.
+ * @param {string} containerId The ID of the HTML element to hold the image.
+ * @param {string} prompt The text prompt for image generation.
+ */
+async function generateImage(containerId, prompt) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // Show loading spinner
+    container.innerHTML = '<div class="spinner"></div>';
+    container.classList.add('flex', 'items-center', 'justify-center');
+
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL}:predict?key=${API_KEY}`;
+    const payload = { 
+        instances: { prompt: prompt }, 
+        parameters: { 
+            sampleCount: 1,
+            aspectRatio: "16:9" 
+        } 
+    };
+
+    try {
+        const response = await fetchWithRetry(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        
+        const result = await response.json();
+        
+        if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+            const base64Data = result.predictions[0].bytesBase64Encoded;
+            const imageUrl = `data:image/png;base64,${base64Data}`;
+            
+            // Create and insert the image element
+            const img = new Image();
+            img.src = imageUrl;
+            img.alt = prompt;
+            img.className = 'w-full h-full object-cover rounded-lg shadow-md';
+            
+            // Clear spinner and insert image
+            container.innerHTML = '';
+            container.appendChild(img);
+            container.classList.remove('flex', 'items-center', 'justify-center');
+
+        } else {
+            const errorMessage = result.error?.message || "이미지 생성 실패";
+            container.innerHTML = `<p class="text-sm text-red-600 text-center p-2">오류: ${errorMessage}</p>`;
+        }
+    } catch (error) {
+        console.error("Image generation error:", error);
+        container.innerHTML = `<p class="text-sm text-red-600 text-center p-2">이미지 로딩 중 오류가 발생했습니다.</p>`;
+    }
+}
+
+// --------------------------------------------------------
+// Event Handlers and Initialization
+// --------------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle logic
+    document.getElementById('menu-button').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
         mobileMenu.classList.toggle('hidden');
     });
 
-    // 모바일 메뉴 링크 클릭 시 메뉴 닫기
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
+    // Simple contact form submission handler
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const messageBox = document.getElementById('contact-message-box');
+        
+        // For demonstration, show success message
+        messageBox.textContent = '문의가 성공적으로 접수되었습니다. 곧 연락드리겠습니다.';
+        messageBox.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-sm text-center font-medium';
+        messageBox.classList.remove('hidden');
+        
+        setTimeout(() => {
+            messageBox.classList.add('hidden');
+        }, 5000);
+
+        this.reset();
     });
-}
 
-// Contact Form Submission Handling (alert() 대신 Custom Message Box 사용)
-const form = document.getElementById('contact-form');
-const messageBox = document.getElementById('message-box');
-
-if (form && messageBox) {
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // 기본 폼 제출 방지
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const type = document.getElementById('type').value;
-
-        // 필수 필드 간편 유효성 검사
-        if (name && name.length > 1 && email && type) {
-            
-            // 성공 메시지 표시
-            messageBox.classList.remove('hidden', 'bg-red-100', 'text-red-700');
-            messageBox.classList.add('bg-warm-secondary', 'text-gray-800'); 
-            messageBox.textContent = `${name}님, 코칭 문의가 성공적으로 접수되었습니다. 곧 연락드리겠습니다!`;
-            
-            // 폼 초기화 및 메시지 박스 숨기기 (3초 후)
-            setTimeout(() => {
-                form.reset();
-                messageBox.classList.add('hidden');
-                messageBox.classList.remove('bg-warm-secondary', 'text-gray-800');
-            }, 3000);
-        } else {
-            // 오류 메시지 표시
-            messageBox.classList.remove('hidden', 'bg-warm-secondary', 'text-gray-800');
-            messageBox.classList.add('bg-red-100', 'text-red-700');
-            messageBox.textContent = '모든 필수 정보를 정확하게 입력해 주세요.';
-        }
+    // Run image generation for all containers
+    const containers = document.querySelectorAll('[data-prompt]');
+    containers.forEach(container => {
+        const id = container.id;
+        const prompt = container.getAttribute('data-prompt');
+        generateImage(id, prompt);
     });
-}
+});

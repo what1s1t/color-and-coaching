@@ -29,18 +29,18 @@
     </script>
 
     <style>
-        /* Loading Spinner Animation */
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #B87333; /* warm-primary color */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
+        /* Custom Styles for Image Containers to maintain Layout */
+        .img-container {
+            /* 이미지 컨테이너 높이 고정 (h-40 = 10rem = 160px) */
+            height: 10rem; 
+            overflow: hidden;
         }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .replaceable-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Placeholder background color */
+            background-color: #e5e5e5; 
         }
     </style>
 </head>
@@ -54,10 +54,11 @@
             </a>
             
             <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none focus:ring-2 focus:ring-warm-primary">
+                <!-- Mobile Menu Icon -->
                 <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
-            <!-- Desktop Navigation: '문의'를 버튼으로 강조 -->
+            <!-- Desktop Navigation -->
             <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
                 <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
                 <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
@@ -71,7 +72,7 @@
             </nav>
         </div>
         
-        <!-- Mobile Menu Dropdown: '문의'를 버튼으로 강조 -->
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
             <nav class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
@@ -101,7 +102,7 @@
         </div>
     </section>
 
-    <!-- Services Section (4 Columns) - 이미지 생성 결과 표시 -->
+    <!-- Services Section (4 Columns) -->
     <section id="services" class="py-16 md:py-24 bg-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -112,9 +113,11 @@
 
                 <!-- 1. 개인 자아 인식 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-service-1" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Professional photo of a diverse, multiracial individual meditating or self-reflecting in a calm, warm setting, cinematic lighting, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. (예: ./images/personal-growth.jpg) -->
+                        <img src="https://placehold.co/600x338/B87333/ffffff?text=개인+자아+인식" 
+                             alt="개인 자아 인식 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">개인 자아 인식</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -124,9 +127,11 @@
 
                 <!-- 2. 커플 관계 개선 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-service-2" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Professional photo of a happy, multiracial couple sitting across from each other, smiling and connecting, showing effective communication, soft light, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/CD7F32/ffffff?text=커플+관계+개선" 
+                             alt="커플 관계 개선 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">커플 관계 개선</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -136,9 +141,11 @@
 
                 <!-- 3. 조직 팀워크 향상 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-service-3" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Dynamic photo of a diverse, multiracial team collaborating around a modern table, hands reaching together to symbolize teamwork, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/8B4513/ffffff?text=조직+팀워크+향상" 
+                             alt="조직 팀워크 향상 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">조직 팀워크 향상</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -148,9 +155,11 @@
                 
                 <!-- 4. 기업/그룹 맞춤형 강의 및 워크숍 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-service-4" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Professional photo of a multiracial coach presenting to a diverse group of attentive trainees in a bright conference room, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/B87333/ffffff?text=맞춤형+강의" 
+                             alt="기업/그룹 맞춤형 강의 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">기업/그룹 맞춤형 강의 및 워크숍</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -162,7 +171,7 @@
         </div>
     </section>
 
-    <!-- Assessment Tools Section (진단 도구 상세 설명 - 이미지 생성 결과 표시) -->
+    <!-- Assessment Tools Section (진단 도구 상세 설명) -->
     <section id="assessments" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -174,9 +183,11 @@
                 <!-- DISC -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div id="img-disc" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                             data-prompt="Abstract art representation of the four DISC personality quadrants using red (Dominance), yellow (Influence), green (Steadiness), and blue (Conscientiousness) color blocks, minimalist, graphic design.">
-                            <div class="spinner"></div>
+                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                            <img src="https://placehold.co/600x338/333333/ffffff?text=DISC+행동+유형+진단" 
+                                 alt="DISC 진단 모델 이미지" 
+                                 class="replaceable-img rounded-lg">
                         </div>
                         <span class="text-5xl font-extrabold text-warm-primary block mt-4">DISC</span>
                         <p class="text-sm text-gray-500 mt-1">행동 유형 진단</p>
@@ -192,9 +203,11 @@
                 <!-- FIRO-B -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div id="img-firob" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                             data-prompt="High-quality, abstract photo art showing three overlapping circles or connected human figures, symbolizing Inclusion, Control, and Affection (FIRO-B). Use soft blue and green tones, professional photo.">
-                            <div class="spinner"></div>
+                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                            <img src="https://placehold.co/600x338/555555/ffffff?text=FIRO-B+관계+욕구+진단" 
+                                 alt="FIRO-B 관계 욕구 진단 모델 이미지" 
+                                 class="replaceable-img rounded-lg">
                         </div>
                         <span class="text-5xl font-extrabold text-warm-secondary block mt-4">FIRO-B</span>
                         <p class="text-sm text-gray-500 mt-1">관계 욕구 진단</p>
@@ -210,9 +223,11 @@
                 <!-- Colour Mirrors System -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div id="img-cm-assessment" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                             data-prompt="Professional, high-resolution photograph of vibrant, colorful two-layered oil bottles (Colour Mirrors system) standing on a reflective surface, clean and spiritual aesthetic.">
-                            <div class="spinner"></div>
+                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                            <img src="https://placehold.co/600x338/c32672/ffffff?text=컬러+미러+시스템+오일" 
+                                 alt="Colour Mirrors System 오일 이미지" 
+                                 class="replaceable-img rounded-lg">
                         </div>
                         <span class="text-5xl font-extrabold text-magenta-new block mt-4">Colour Mirrors System</span>
                         <p class="text-sm text-gray-500 mt-1">내면 심리 진단</p>
@@ -229,7 +244,7 @@
         </div>
     </section>
 
-    <!-- Color Therapy & Certification Section - 이미지 생성 결과 표시 -->
+    <!-- Color Therapy & Certification Section -->
     <section id="color-therapy" class="py-16 md:py-24 bg-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -240,9 +255,11 @@
                 
                 <!-- 1. 컬러 테라피스트 자격과정 및 리딩 컨설팅 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-therapy-1" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Professional photo of a multiracial group of students holding Colour Mirrors oil bottles during a certification class, looking focused and engaged, soft, professional lighting, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/CD7F32/ffffff?text=테라피스트+자격과정" 
+                             alt="컬러 테라피스트 자격과정 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">컬러 테라피스트 자격과정 및 리딩 컨설팅</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -252,9 +269,11 @@
 
                 <!-- 2. 1:1 맞춤 컬러 테라피 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-therapy-2" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="Professional photo of a multiracial therapist gently consulting with a client 1:1, with Colour Mirrors bottles subtly placed on the table, warm light, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/B87333/ffffff?text=1:1+맞춤+컬러+테라피" 
+                             alt="1:1 맞춤 컬러 테라피 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 맞춤 컬러 테라피</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -264,9 +283,11 @@
 
                 <!-- 3. 1:1 컬러 테라피 집중 패키지 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div id="img-therapy-3" class="aspect-video w-full rounded-lg mb-4 shadow-md overflow-hidden flex items-center justify-center h-40"
-                         data-prompt="A cinematic photo of a multiracial person looking confidently towards a bright, colorful path or horizon, symbolizing focused growth and transformation, photorealistic.">
-                        <div class="spinner"></div>
+                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
+                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
+                        <img src="https://placehold.co/600x338/8B4513/ffffff?text=컬러+테라피+집중+패키지" 
+                             alt="컬러 테라피 집중 패키지 이미지" 
+                             class="replaceable-img rounded-lg">
                     </div>
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 컬러 테라피 집중 패키지</h3>
                     <p class="text-gray-600 text-center text-sm">
@@ -333,132 +354,29 @@
 
 
     <script>
-        // Mobile menu toggle logic
+        // 모바일 메뉴 토글 로직
         document.getElementById('menu-button').addEventListener('click', function() {
             var mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Simple contact form submission handler
+        // 문의 폼 제출 처리 (실제 서버 전송 로직 대신 임시 메시지 표시)
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // 기본 폼 제출 방지
             const messageBox = document.getElementById('contact-message-box');
             
-            // For demonstration, show success message
+            // 성공 메시지 표시
             messageBox.textContent = '문의가 성공적으로 접수되었습니다. 곧 연락드리겠습니다.';
             messageBox.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-sm text-center font-medium';
             messageBox.classList.remove('hidden');
             
+            // 5초 후 메시지 숨기기
             setTimeout(() => {
                 messageBox.classList.add('hidden');
             }, 5000);
 
-            this.reset();
+            this.reset(); // 폼 필드 초기화
         });
-
-        // --------------------------------------------------------
-        // Gemini Image Generation Logic
-        // --------------------------------------------------------
-
-        const IMAGE_MODEL = 'imagen-4.0-generate-001';
-        const API_KEY = ""; // Canvas will provide this at runtime
-
-        /**
-         * Retries the fetch request with exponential backoff.
-         * @param {string} url The API endpoint URL.
-         * @param {object} options Fetch request options.
-         * @param {number} maxRetries Maximum number of retries.
-         * @returns {Promise<Response>} The successful response.
-         */
-        async function fetchWithRetry(url, options, maxRetries = 3) {
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (response.ok) {
-                        return response;
-                    } else if (response.status === 429) { // Rate limit or transient error
-                        if (i < maxRetries - 1) {
-                            const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                            continue;
-                        }
-                    }
-                    throw new Error(`API request failed with status ${response.status}`);
-                } catch (error) {
-                    if (i === maxRetries - 1) {
-                        throw error;
-                    }
-                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                }
-            }
-        }
-
-        /**
-         * Generates an image using the Gemini API and updates the corresponding container.
-         * @param {string} containerId The ID of the HTML element to hold the image.
-         * @param {string} prompt The text prompt for image generation.
-         */
-        async function generateImage(containerId, prompt) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            // Show loading spinner
-            container.innerHTML = '<div class="spinner"></div>';
-            container.classList.add('flex', 'items-center', 'justify-center');
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL}:predict?key=${API_KEY}`;
-            const payload = { 
-                instances: { prompt: prompt }, 
-                parameters: { 
-                    sampleCount: 1,
-                    aspectRatio: "16:9" 
-                } 
-            };
-
-            try {
-                const response = await fetchWithRetry(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                
-                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                    const base64Data = result.predictions[0].bytesBase64Encoded;
-                    const imageUrl = `data:image/png;base64,${base64Data}`;
-                    
-                    // Create and insert the image element
-                    const img = new Image();
-                    img.src = imageUrl;
-                    img.alt = prompt;
-                    img.className = 'w-full h-full object-cover rounded-lg shadow-md';
-                    
-                    // Clear spinner and insert image
-                    container.innerHTML = '';
-                    container.appendChild(img);
-                    container.classList.remove('flex', 'items-center', 'justify-center');
-
-                } else {
-                    const errorMessage = result.error?.message || "이미지 생성 실패";
-                    container.innerHTML = `<p class="text-sm text-red-600 text-center p-2">오류: ${errorMessage}</p>`;
-                }
-            } catch (error) {
-                console.error("Image generation error:", error);
-                container.innerHTML = `<p class="text-sm text-red-600 text-center p-2">이미지 로딩 중 오류가 발생했습니다.</p>`;
-            }
-        }
-
-        // Run image generation for all containers on window load
-        window.onload = function() {
-            const containers = document.querySelectorAll('[data-prompt]');
-            containers.forEach(container => {
-                const id = container.id;
-                const prompt = container.getAttribute('data-prompt');
-                generateImage(id, prompt);
-            });
-        };
     </script>
 </body>
 </html>

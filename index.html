@@ -58,9 +58,10 @@
                 <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
-            <!-- Desktop Navigation: '교육문의'로 변경됨 -->
+            <!-- Desktop Navigation: '소개' 섹션 추가됨 -->
             <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
                 <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
+                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a> <!-- 소개 메뉴 추가 -->
                 <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
                 <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
                 <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition duration-300">컬러 테라피</a>
@@ -72,10 +73,11 @@
             </nav>
         </div>
         
-        <!-- Mobile Menu Dropdown: '교육문의'로 변경됨 -->
+        <!-- Mobile Menu Dropdown: '소개' 섹션 추가됨 -->
         <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
             <nav class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
+                <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">소개</a> <!-- 소개 메뉴 추가 -->
                 <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
                 <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">진단 도구</a>
                 <a href="#color-therapy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">컬러 테라피</a>
@@ -102,6 +104,46 @@
             </a>
         </div>
     </section>
+
+    <!-- Introduction Section (소개: 김영정 대표) - NEW SECTION -->
+    <section id="introduction" class="py-16 md:py-24 bg-white border-b border-soft-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-warm-primary">
+                김영정 대표
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-8 rounded-2xl shadow-xl">
+                <!-- Photo Placeholder / Container -->
+                <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary">
+                    <!-- Placeholder Image (replace with actual photo URL) -->
+                    <img src="https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진"
+                         alt="김영정 대표 사진"
+                         class="w-full h-full object-cover replaceable-img"
+                         onerror="this.onerror=null;this.src='https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진';">
+                </div>
+
+                <!-- Introduction Text -->
+                <div class="md:flex-grow text-center md:text-left">
+                    <p class="text-2xl font-semibold text-gray-800 mb-4">
+                        "내면의 빛을 발견하고, 진정한 연결을 돕는 코치"
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        안녕하세요, 컬러앤코칭 대표 김영정입니다. 오랜 기간 동안 DISC, FIRO-B 등 행동 심리 분야와 Colour Mirrors System을 깊이 연구하며 개인의 성장과 관계 개선에 헌신해 왔습니다. 저의 목표는 진단 도구를 통해 얻은 과학적 통찰과 컬러 테라피의 직관적 치유력을 결합하여, 고객이 스스로의 잠재력을 인식하고 삶의 주도권을 되찾도록 돕는 것입니다.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        기업 및 그룹 맞춤형 강의, 1:1 심층 코칭 등 다양한 프로그램을 통해 수많은 사람들의 '내면의 연결'을 도와왔습니다. 당신의 삶에서 막혀 있는 부분, 관계의 어려움, 또는 발견하고 싶은 잠재력이 있다면, 저와 함께 그 길을 걸어보시길 바랍니다.
+                    </p>
+                    <ul class="text-sm text-warm-primary font-medium space-y-1 mt-6 list-none md:list-disc pl-0 md:pl-5">
+                        <li>국제 공인 DISC/FIRO-B 전문 컨설턴트</li>
+                        <li>Colour Mirrors System 마스터 레벨 테라피스트</li>
+                        <li>[추가 경력/자격증 1]</li>
+                        <li>[추가 경력/자격증 2]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Introduction Section -->
 
     <!-- Services Section (4 Columns) -->
     <section id="services" class="py-16 md:py-24 bg-soft-beige">
@@ -311,6 +353,7 @@
             </p>
             
             <div class="bg-white p-4 rounded-xl shadow-2xl">
+                <!-- iframe을 사용하는 경우, iframe 내에 form이 있으므로 별도의 JS form submit handler는 불필요합니다. -->
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?embedded=true" width="100%" height="913" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
             </div>
@@ -339,8 +382,17 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // 문의 폼 제출 처리 (실제 서버 전송 로직 대신 임시 메시지 표시)
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // *주의: 문의 폼이 iframe으로 교체되었으므로, 원래의 contact-form 제출 핸들러는 제거하거나 수정해야 합니다. 
+        // 기존 HTML에는 #contact-form 이라는 ID의 form이 없었으므로, iframe을 사용하는 현재 방식에서는 아래 JS 코드는 무시됩니다.
+        // 하지만 혹시 모를 충돌을 피하기 위해 임시로 주석 처리하거나 관련 코드를 제거하는 것이 좋습니다.
+        /* document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); // 기본 폼 제출 방지
             const messageBox = document.getElementById('contact-message-box');
             
@@ -355,7 +407,8 @@
             }, 5000);
 
             this.reset(); // 폼 필드 초기화
-        });
+        }); 
+        */
     </script>
 </body>
 </html>

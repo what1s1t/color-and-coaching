@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color and Coaching 컬러앤코칭 - 자아 인식 및 관계 진단/솔루션</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Meta Information -->
     <meta name="description" content="컬러앤코칭은 DISC, FIRO-B, Colour Mirrors System을 통해 개인의 자아 인식, 커플 관계, 조직 팀워크 향상을 위한 진단, 리딩, 교육 프로그램을 전문적으로 제공하는 웹사이트입니다.">
 
     <script>
@@ -42,11 +40,15 @@
             /* Placeholder background color */
             background-color: #e5e5e5; 
         }
+        /* 대표 사진을 위한 커스텀 크기 및 오브젝트 핏 */
+        .profile-circle-img {
+            object-fit: contain; /* 전체 이미지가 잘리지 않도록 함 */
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body class="antialiased font-sans">
 
-    <!-- Header & Navigation -->
     <header class="bg-white shadow-lg sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-extrabold text-warm-primary rounded-lg p-1">
@@ -54,34 +56,27 @@
             </a>
             
             <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none focus:ring-2 focus:ring-warm-primary">
-                <!-- Mobile Menu Icon -->
                 <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
-            <!-- Desktop Navigation: '소개' 섹션 추가됨 -->
             <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
                 <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
-                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a> <!-- 소개 메뉴 추가 -->
-                <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
+                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a> <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
                 <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
                 <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition duration-300">컬러 테라피</a>
                 
-                <!-- 교육문의 버튼 스타일 -->
                 <a href="#contact" class="px-4 py-2 bg-warm-primary text-white font-semibold rounded-full shadow-md hover:bg-copper-dark transition duration-300">
                     교육문의
                 </a>
             </nav>
         </div>
         
-        <!-- Mobile Menu Dropdown: '소개' 섹션 추가됨 -->
         <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
             <nav class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
-                <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">소개</a> <!-- 소개 메뉴 추가 -->
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
+                <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">소개</a> <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
                 <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">진단 도구</a>
                 <a href="#color-therapy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">컬러 테라피</a>
-                <!-- 교육문의 버튼 스타일 (모바일 전체 너비) -->
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white text-center bg-warm-primary hover:bg-copper-dark transition duration-300 shadow-md mt-2">
                     교육문의
                 </a>
@@ -89,7 +84,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="bg-white py-20 md:py-32 text-center border-b border-soft-beige">
         <div class="max-w-4xl mx-auto px-4">
             <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
@@ -105,7 +99,6 @@
         </div>
     </section>
 
-    <!-- Introduction Section (소개: 김영정 대표) - NEW SECTION -->
     <section id="introduction" class="py-16 md:py-24 bg-white border-b border-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-warm-primary">
@@ -113,16 +106,12 @@
             </h2>
 
             <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-8 rounded-2xl shadow-xl">
-                <!-- Photo Placeholder / Container -->
-                <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary">
-                    <!-- Placeholder Image (replace with actual photo URL) -->
+                <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary bg-white">
                     <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/1on1_2.jpeg?raw=true"
                          alt="김영정 대표 사진"
-                         class="w-full h-full object-cover replaceable-img"
-                         onerror="this.onerror=null;this.src='https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진';">
+                         class="w-full h-full profile-circle-img p-12" onerror="this.onerror=null;this.src='https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진'; this.classList.remove('p-12');">
                 </div>
 
-                <!-- Introduction Text -->
                 <div class="md:flex-grow text-center md:text-left">
                     <p class="text-2xl font-semibold text-gray-800 mb-4">
                         "내면의 빛을 발견하고, 진정한 연결을 돕는 코치"
@@ -136,16 +125,13 @@
                     <ul class="text-sm text-warm-primary font-medium space-y-1 mt-6 list-none md:list-disc pl-0 md:pl-5">
                         <li>국제 공인 DISC/FIRO-B 전문 컨설턴트</li>
                         <li>Colour Mirrors System 마스터 레벨 테라피스트</li>
-                        <li>마음을 치유하는 컬러 테라피 저자</li>
-                        <li>The Wisdom of 12 Pearls 공저</li>
+                        <li>[추가 경력/자격증 1]</li>
+                        <li>[추가 경력/자격증 2]</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- END Introduction Section -->
-
-    <!-- Services Section (4 Columns) -->
     <section id="services" class="py-16 md:py-24 bg-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -154,10 +140,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- 1. 개인 자아 인식 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. (예: ./images/personal-growth.jpg) -->
                         <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/self2.png?raw=true" 
                              alt="개인 자아 인식 이미지" 
                              class="replaceable-img rounded-lg">
@@ -168,10 +152,8 @@
                     </p>
                 </div>
 
-                <!-- 2. 커플 관계 개선 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
                         <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/couple.png?raw=true" 
                              alt="커플 관계 개선 이미지" 
                              class="replaceable-img rounded-lg">
@@ -182,10 +164,8 @@
                     </p>
                 </div>
 
-                <!-- 3. 조직 팀워크 향상 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
                         <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/team.png" 
                              alt="조직 팀워크 향상 이미지" 
                              class="replaceable-img rounded-lg">
@@ -196,10 +176,8 @@
                     </p>
                 </div>
                 
-                <!-- 4. 기업/그룹 맞춤형 강의 및 워크숍 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
                         <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/lecture.png" 
                              alt="기업/그룹 맞춤형 강의 이미지" 
                              class="replaceable-img rounded-lg">
@@ -214,7 +192,6 @@
         </div>
     </section>
 
-    <!-- Assessment Tools Section (진단 도구 상세 설명) -->
     <section id="assessments" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -223,12 +200,10 @@
 
             <div class="space-y-12">
                 
-                <!-- DISC -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
                         <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/disc2.jpg?raw=true" 
+                             <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/disc2.jpg?raw=true" 
                                  alt="DISC 진단 모델 이미지" 
                                  class="replaceable-img rounded-lg">
                         </div>
@@ -243,12 +218,10 @@
                     </div>
                 </div>
 
-                <!-- FIRO-B -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
                         <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/firob-b4.jpg?raw=true" 
+                             <img src="https://github.com/what1s1t/color-and-coaching/blob/main/firob-b4.jpg?raw=true" 
                                  alt="FIRO-B 관계 욕구 진단 모델 이미지" 
                                  class="replaceable-img rounded-lg">
                         </div>
@@ -263,12 +236,10 @@
                     </div>
                 </div>
 
-                <!-- Colour Mirrors System -->
                 <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
                     <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
                         <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                             <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                            <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/colour.jpeg" 
+                             <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/colour.jpeg" 
                                  alt="Colour Mirrors System 오일 이미지" 
                                  class="replaceable-img rounded-lg">
                         </div>
@@ -287,7 +258,6 @@
         </div>
     </section>
 
-    <!-- Color Therapy & Certification Section -->
     <section id="color-therapy" class="py-16 md:py-24 bg-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
@@ -296,11 +266,9 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- 1. 컬러 테라피스트 자격과정 및 심화 코칭 (설명 변경됨) -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                        <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/certificate2.jpeg" 
+                         <img src="https://raw.githubusercontent.com/what1s1t/color-and-coaching/refs/heads/main/images/certificate2.jpeg" 
                              alt="컬러 테라피스트 자격과정 이미지" 
                              class="replaceable-img rounded-lg">
                     </div>
@@ -310,11 +278,9 @@
                     </p>
                 </div>
 
-                <!-- 2. 1:1 맞춤 컬러 테라피 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/1on1.jpeg?raw=true" 
+                         <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/1on1_2.jpeg?raw=true" 
                              alt="1:1 맞춤 컬러 테라피 이미지" 
                              class="replaceable-img rounded-lg">
                     </div>
@@ -324,11 +290,9 @@
                     </p>
                 </div>
 
-                <!-- 3. 1:1 컬러 테라피 집중 패키지 -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                         <!-- [필수] 이미지 교체 영역: 깃허브 업로드 시, 아래 src 주소를 실제 이미지 URL로 변경하세요. -->
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/intensive2.jpeg?raw=true" 
+                         <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/intensive2.jpeg?raw=true" 
                              alt="컬러 테라피 집중 패키지 이미지" 
                              class="replaceable-img rounded-lg">
                     </div>
@@ -342,8 +306,7 @@
         </div>
     </section>
     
-    <!-- Contact & Consultation Form -->
- <section id="contact" class="py-16 md:py-24 bg-warm-primary">
+    <section id="contact" class="py-16 md:py-24 bg-warm-primary">
         <div class="max-w-4xl mx-auto px-4 text-center text-white">
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">
                 지금, 당신의 성장 여정을 시작하세요
@@ -353,13 +316,11 @@
             </p>
             
             <div class="bg-white p-4 rounded-xl shadow-2xl">
-                <!-- iframe을 사용하는 경우, iframe 내에 form이 있으므로 별도의 JS form submit handler는 불필요합니다. -->
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?embedded=true" width="100%" height="913" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
             </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-copper-dark py-10 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h4 class="text-xl font-bold mb-2">Color and Coaching 컬러앤코칭</h4>
@@ -388,27 +349,7 @@
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
-
-        // *주의: 문의 폼이 iframe으로 교체되었으므로, 원래의 contact-form 제출 핸들러는 제거하거나 수정해야 합니다. 
-        // 기존 HTML에는 #contact-form 이라는 ID의 form이 없었으므로, iframe을 사용하는 현재 방식에서는 아래 JS 코드는 무시됩니다.
-        // 하지만 혹시 모를 충돌을 피하기 위해 임시로 주석 처리하거나 관련 코드를 제거하는 것이 좋습니다.
-        /* document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // 기본 폼 제출 방지
-            const messageBox = document.getElementById('contact-message-box');
-            
-            // 성공 메시지 표시
-            messageBox.textContent = '문의가 성공적으로 접수되었습니다. 곧 연락드리겠습니다.';
-            messageBox.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-sm text-center font-medium';
-            messageBox.classList.remove('hidden');
-            
-            // 5초 후 메시지 숨기기
-            setTimeout(() => {
-                messageBox.classList.add('hidden');
-            }, 5000);
-
-            this.reset(); // 폼 필드 초기화
-        }); 
-        */
     </script>
 </body>
 </html>
+```eof

@@ -9,19 +9,16 @@
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     
-    <meta name="description" content="컬러앤코칭은 DISC, FIRO-B, Colour Mirrors System을 통해 개인의 자아 인식, 커플 관계, 조직 팀워크 향상을 위한 진단, 리딩, 교육 프로그램을 전문적으로 제공하는 웹사이트입니다.">
-
     <script>
-        // Tailwind Configuration for custom colors
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'warm-primary': '#B87333', /* Copper (Main Brand Color) */
-                        'warm-secondary': '#CD7F32', /* Bronze */
-                        'soft-beige': '#f5e7dc', /* Soft light brown/beige */
-                        'copper-dark': '#8B4513', /* SaddleBrown for deeper accents */
-                        'magenta-new': '#c32672', /* Header title color */
+                        'warm-primary': '#B87333',
+                        'warm-secondary': '#CD7F32',
+                        'soft-beige': '#f5e7dc',
+                        'copper-dark': '#8B4513',
+                        'magenta-new': '#c32672',
                     }
                 }
             }
@@ -29,13 +26,10 @@
     </script>
 
     <style>
-        /* CSS 폰트 적용: body 전체에 Pretendard를 기본 폰트로 적용 */
         body {
             font-family: 'Pretendard', sans-serif;
         }
-        /* Custom Styles for Image Containers to maintain Layout */
         .img-container {
-            /* 이미지 컨테이너 높이 고정 (h-40 = 10rem = 160px) */
             height: 10rem; 
             overflow: hidden;
         }
@@ -43,44 +37,42 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Placeholder background color */
             background-color: #e5e5e5; 
         }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body class="antialiased">
 
-    <header class="bg-white shadow-lg sticky top-0 z-10">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-extrabold text-warm-primary rounded-lg p-1">
-                Color and Coaching<br class="hidden sm:inline">컬러앤코칭
+            <a href="#home" class="text-xl sm:text-2xl font-extrabold text-warm-primary whitespace-nowrap">
+                Color and Coaching&nbsp;컬러앤코칭
             </a>
             
-            <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none focus:ring-2 focus:ring-warm-primary">
+            <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none">
                 <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
-            <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
-                <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
-                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a> <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
-                <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
-                <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition duration-300">컬러 테라피</a>
-                
-                <a href="#contact" class="px-4 py-2 bg-warm-primary text-white font-semibold rounded-full shadow-md hover:bg-copper-dark transition duration-300">
+            <nav class="hidden sm:flex items-center space-x-6 text-lg font-medium">
+                <a href="#home" class="text-gray-600 hover:text-warm-primary transition">홈</a>
+                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition">소개</a>
+                <a href="#services" class="text-gray-600 hover:text-warm-primary transition">서비스</a>
+                <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition">진단 도구</a>
+                <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition">컬러 테라피</a>
+                <a href="#contact" class="px-4 py-2 bg-warm-primary text-white font-semibold rounded-full shadow-md hover:bg-copper-dark transition">
                     교육문의
                 </a>
             </nav>
         </div>
         
-        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
-            <nav class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
-                <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">소개</a> <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
-                <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">진단 도구</a>
-                <a href="#color-therapy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">컬러 테라피</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white text-center bg-warm-primary hover:bg-copper-dark transition duration-300 shadow-md mt-2">
-                    교육문의
-                </a>
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t">
+            <nav class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 font-medium">홈</a>
+                <a href="#introduction" class="block py-2 text-gray-700 font-medium">소개</a>
+                <a href="#services" class="block py-2 text-gray-700 font-medium">서비스</a>
+                <a href="#assessments" class="block py-2 text-gray-700 font-medium">진단 도구</a>
+                <a href="#color-therapy" class="block py-2 text-gray-700 font-medium">컬러 테라피</a>
+                <a href="#contact" class="block py-3 bg-warm-primary text-white text-center font-bold rounded-lg shadow-md mt-2">교육문의</a>
             </nav>
         </div>
     </header>
@@ -94,335 +86,71 @@
                 DISC, FIRO-B, Colour Mirrors System을 통해 <br>
                 개인, 커플, 조직의 잠재력을 일깨우는 전문 진단/솔루션을 제공합니다.
             </p>
-            <a href="#contact" class="inline-block px-8 py-3 bg-warm-primary text-white text-lg font-semibold rounded-full shadow-xl hover:bg-copper-dark transition duration-300 transform hover:scale-105">
+            <a href="#contact" class="inline-block px-8 py-3 bg-warm-primary text-white text-lg font-semibold rounded-full shadow-xl hover:bg-copper-dark transition transform hover:scale-105">
                 문의하기
             </a>
         </div>
     </section>
 
     <section id="introduction" class="py-16 md:py-24 bg-white border-b border-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center space-y-1 mb-6">
-    
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-0 text-warm-primary">
-                김영정 대표
-            </h2>
-    <a 
-        href="https://www.instagram.com/color_and_coaching/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="inline-flex items-center p-1 bg-white transition duration-300 rounded-lg border border-gray-200 hover:border-pink-400 hover:shadow-md cursor-pointer flex-shrink-0 mt-0"
-    >
-        <img 
-            src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_IG.webp?raw=true" 
-            alt="인스타그램 로고 플레이스홀더" 
-            class="w-8 h-8 rounded-full mr-2 flex-shrink-0 object-cover"
-            onerror="this.onerror=null; this.src='https://placehold.co/32x32/cccccc/000000?text=Logo'"
-        >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-2 text-warm-primary">김영정 대표</h2>
+            <div class="flex justify-center mb-8">
+                <a href="https://www.instagram.com/color_and_coaching/" target="_blank" class="inline-flex items-center p-1 px-3 border border-gray-200 rounded-full hover:shadow-md transition">
+                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_IG.webp?raw=true" alt="IG" class="w-6 h-6 rounded-full mr-2" onerror="this.src='https://placehold.co/24x24'">
+                    <span class="text-sm text-gray-600">@color_and_coaching</span>
+                </a>
+            </div>
 
-        <span class="text-base font-light text-gray-700 hover:text-pink-600 truncate mr-1">
-            @color_and_coaching
-        </span>
-    </a>
-    
-</div>
-            
             <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-8 rounded-2xl shadow-xl">
                 <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary">
-                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/01_intro.webp?raw=true"
-                                alt="김영정 대표 사진"
-                                class="w-full h-full object-cover replaceable-img"
-                                onerror="this.onerror=null;this.src='https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진';">
+                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/01_intro.webp?raw=true" alt="김영정 대표" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/500x500'">
                 </div>
 
                 <div class="md:flex-grow text-center md:text-left">
-                    <p class="text-2xl font-semibold text-gray-800 mb-4">
-                        "내면의 빛을 발견하고, 진정한 연결을 돕는 안내자"
+                    <p class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+                        "내면의 빛을 발견하고,<br class="md:hidden"> 진정한 연결을 돕는 안내자"
                     </p>
                     <p class="text-gray-700 mb-4 leading-relaxed">
-                        안녕하세요, 컬러앤코칭 대표 김영정입니다.<br>오랜 기간 동안 DISC, FIRO-B 등 행동 심리 분야와 Colour Mirrors System을 깊이 연구하며 개인의 성장과 관계 개선에 힘써 왔습니다. 저의 목표는 진단 도구를 통해 얻은 과학적 통찰과 컬러 테라피의 직관적 치유력을 결합하여, 개인이 스스로의 잠재력을 인식하고 삶의 주도권을 되찾도록 돕는 것입니다.
+                        안녕하세요, 컬러앤코칭 대표 김영정입니다. DISC, FIRO-B 등 행동 심리 분야와 Colour Mirrors System을 깊이 연구하며 개인의 성장과 관계 개선에 힘써 왔습니다.
                     </p>
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        기업 및 그룹 맞춤형 강의, 1:1 코칭 등 다양한 프로그램을 통해 수많은 사람들의 '내면의 연결'을 안내했습니다. 당신의 삶에서 막혀 있는 부분, 관계의 어려움, 또는 발견하고 싶은 잠재력이 있다면, 저와 함께 그 길을 걸어보시길 바랍니다.
-                    </p>
-                    <ul class="text-base text-warm-primary font-medium space-y-1 mt-6 list-none md:list-disc pl-0 md:pl-5">
+                    <ul class="text-base text-warm-primary font-medium space-y-1 list-none md:list-disc pl-0 md:pl-5">
                         <li>DISC/FIRO-B 전문 컨설턴트</li>
                         <li>국제 공인 컬러 테라피스트</li>
-                        <li>국제 공인 Colour Mirrors 티처</li>
                         <li>마음을 치유하는 컬러 테라피 저자</li>
-                            <li class="list-none pt-1">
-    <a href="https://product.kyobobook.co.kr/detail/S000218276890" target="_blank" rel="noopener noreferrer"
-        class="inline-flex items-center space-x-2 text-warm-primary hover:text-magenta-new font-bold transition duration-300 bg-white px-3 py-1 rounded-full shadow-md hover:shadow-lg border border-warm-secondary text-sm">
-        
-        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_book.webp?raw=true" 
-             alt="도서 아이콘" 
-             class="w-12 h-12 object-contain flex-shrink-0 mr-3" onerror="this.onerror=null; this.src='https://img.icons8.com/fluency/48/book.png'">
-             
-        <div class="flex flex-col justify-center overflow-hidden">
-            <span class="text-gray-800 font-bold text-sm sm:text-base leading-tight">
-                마음을 치유하는 컬러 테라피 
-                <span class="block sm:inline text-gray-500 text-xs sm:text-sm font-normal">(교보문고 바로가기)</span>
-            </span>
-        </div>
-    </a>
-</li>
-                        <li>The Wisdom of 12 Pearls 공저</li>
+                        <li class="list-none pt-2">
+                             <a href="https://product.kyobobook.co.kr/detail/S000218276890" target="_blank" class="inline-flex items-center text-sm font-bold bg-white px-3 py-1 rounded-full shadow-sm border border-warm-secondary">
+                                <span class="text-gray-800">마음을 치유하는 컬러 테라피 (교보문고)</span>
+                             </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <section id="services" class="py-16 md:py-24 bg-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
-                컬러앤코칭 주요 서비스
-            </h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/02_self.webp?raw=true" 
-                                alt="개인 자아 인식 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">개인 자아 인식</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        DISC와 Colour Mirrors System을 활용하여 자신의 행동 패턴, 강점, 숨겨진 잠재력을 깊이 이해하고 진정한 나를 발견하도록 돕는 자아 성장 솔루션을 제공합니다.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/03_couple.webp?raw=true" 
-                                alt="커플 관계 개선 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">커플 관계 개선</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        FIRO-B와 DISC 진단을 통해 서로의 관계 욕구와 행동 스타일 차이를 파악하고 건강한 소통 방식을 찾도록 돕는 관계 개선 프로그램을 진행합니다.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/04_team.webp?raw=true" 
-                                alt="조직 팀워크 향상 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">조직 팀워크 향상</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        DISC, FIRO-B 등 전문 진단 도구를 활용하여 팀원 간 역동성 분석 및 최적의 팀 빌딩 전략을 제시하고 실행을 지원합니다.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/05_lecture.webp?raw=true" 
-                                alt="기업/그룹 맞춤형 강의 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">기업/그룹 맞춤형 강의 및<br>워크숍</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        조직의 특성에 맞는 DISC, FIRO-B 기반의 맞춤형 강의 및 워크숍을 기획하고 진행하여 실질적인 성장을 지원합니다.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="assessments" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
-                컬러앤코칭 진단 도구 소개
-            </h2>
-
-            <div class="space-y-12">
-                
-                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
-                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/06_disc.webp?raw=true" 
-                                    alt="DISC 진단 모델 이미지" 
-                                    class="replaceable-img rounded-lg">
-                        </div>
-                        <span class="text-5xl font-extrabold text-warm-primary block mt-4">DISC</span>
-                        <p class="text-sm text-gray-500 mt-1">행동 유형 진단</p>
-                    </div>
-                    <div class="md:ml-8 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">DISC 행동 유형 진단: 나를 이해하는 첫걸음</h3>
-                        <p class="text-gray-600">
-                            DISC는 개인의 <strong>주도형(Dominance), 사교형(Influence), 안정형(Steadiness), 신중형(Conscientiousness)</strong> 네 가지 핵심 행동 스타일을 측정하는 국제적인 진단 도구입니다. 이 진단을 통해 자신의 선호하는 행동 패턴, 업무 스타일, 스트레스 반응 방식을 명확히 파악할 수 있으며, 타인과의 상호작용 방식, 팀 내에서의 역할, 그리고 효과적인 의사소통 전략을 구축하는 데 필수적인 통찰력을 제공하여 자기 이해와 대인 관계 능력을 향상시킵니다.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
-                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/07_firo-b.webp?raw=true" 
-                                    alt="FIRO-B 관계 욕구 진단 모델 이미지" 
-                                    class="replaceable-img rounded-lg">
-                        </div>
-                        <span class="text-5xl font-extrabold text-warm-secondary block mt-4">FIRO-B</span>
-                        <p class="text-sm text-gray-500 mt-1">관계 욕구 진단</p>
-                    </div>
-                    <div class="md:ml-8 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">FIRO-B 관계 욕구 진단: 관계 갈등의 근본 원인 파악</h3>
-                        <p class="text-gray-600">
-                            FIRO-B (Fundamental Interpersonal Relations Orientation – Behavior)는 인간관계에서 충족시키고자 하는 <strong>소속(Inclusion), 통제(Control), 정서(Affection)</strong>의 세 가지 핵심 욕구를 측정합니다. 이 진단은 <strong>표현 욕구</strong>와 <strong>기대 욕구</strong>를 세밀하게 분석하여 관계 역동성을 이해하도록 돕습니다. 특히 커플 관계나 팀 내에서 발생하는 잦은 갈등, 소외감, 권력 다툼 등의 근본적인 관계 욕구 차이를 정확하게 파악하고, 상대방의 진정한 욕구를 이해함으로써 건강하고 만족스러운 관계 개선 솔루션을 찾을 수 있습니다.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center bg-soft-beige p-6 rounded-xl shadow-lg">
-                    <div class="md:w-1/4 flex-shrink-0 mb-4 md:mb-0 text-center">
-                        <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/08_colour.webp?raw=true" 
-                                    alt="Colour Mirrors System 오일 이미지" 
-                                    class="replaceable-img rounded-lg">
-                        </div>
-                        <span class="text-5xl font-extrabold text-magenta-new block mt-4">Colour Mirrors System</span>
-                        <p class="text-sm text-gray-500 mt-1">내면 심리 진단</p>
-                    </div>
-                    <div class="md:ml-8 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-2 text-gray-800">Colour Mirrors System: 무의식과 내면의 치유</h3>
-                        <p class="text-gray-600">
-                            Colour Mirrors System은 다채로운 색상 오일과 에센스를 활용하여, 개인이 <strong>무의식적으로 선택한 색</strong>을 통해 현재의 감정 상태, 과거의 경험, 그리고 앞으로의 잠재적 변화를 직관적으로 탐색하는 심리 분석 도구입니다. 색상의 상징성과 에너지를 통해 내면의 메시지를 읽어내고, 억압된 감정이나 패턴을 인지하게 하여 스스로 치유와 성장의 길을 찾도록 돕습니다. 깊이 있는 자기 이해와 정서적 안정감을 찾는 데 매우 효과적입니다.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="color-therapy" class="py-16 md:py-24 bg-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
-                컬러 테라피 및 컬러 테라피스트 자격과정
-            </h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/09_color_courses.webp?raw=true" 
-                                alt="컬러 테라피스트 자격과정 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">컬러 테라피스트 <br> 자격과정 및 심화 코칭</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        컬러 테라피 전문가로 성장하기 위한 체계적인 이론 학습과 실습, 멘토링이 포함됩니다. 국제 자격 과정으로 레벨 1, 2로 구성되며 체특화를 위한 코칭이 있습니다.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/10_color_1on1.webp?raw=true" 
-                                alt="1:1 맞춤 컬러 테라피 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 맞춤 컬러 테라피</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        개인의 현재 감정 상태와 이슈에 집중하여 Colour Mirrors 오일 리딩을 진행합니다. 심층적인 대화를 통해 정서적 안정과 문제 해결을 위한 맞춤형 솔루션을 제공합니다.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="aspect-video w-full rounded-lg mb-4 shadow-md img-container">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/11_color_package.webp?raw=true" 
-                                alt="컬러 테라피 집중 패키지 이미지" 
-                                class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 컬러 테라피 집중 패키지</h3>
-                    <p class="text-gray-600 text-center text-sm">
-                        지속적인 컬러 리딩과 상담, 개인에 맞는 컬러 명상 진행으로 삶의 근본적인 변화를 경험할 수 있습니다. 3회 이상 패키지 선택 가능합니다.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    
     <section id="contact" class="py-16 md:py-24 bg-warm-primary">
-    <div class="max-w-4xl mx-auto px-4 text-center text-white">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-            지금, 당신의 성장 여정을 시작하세요
-        </h2>
-        <p class="text-xl mb-10 opacity-90">
-            개인, 커플, 조직 모두 환영합니다. <br class="sm:hidden">
-            <br>아래 버튼을 눌러 문의 내용을 남겨주시면 빠른 시일 내에 연락드리겠습니다.
-        </p>
-        
-        <div class="flex justify-center">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을 시작하세요</h2>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" 
                target="_blank" 
-               rel="noopener noreferrer"
-               class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-2xl font-extrabold rounded-full shadow-2xl hover:bg-soft-beige transition duration-300 transform hover:scale-105 animate-bounce-subtle">
-               <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
+               class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-2xl font-extrabold rounded-full shadow-2xl transition transform hover:scale-105">
                 문의하기
             </a>
         </div>
-        
-        <p class="mt-8 text-sm opacity-75">
-            * 버튼을 누르면 구글 폼 신청서로 안전하게 이동합니다.
-        </p>
-    </div>
-</section>
+    </section>
 
-    <footer class="bg-copper-dark py-10 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <footer class="bg-copper-dark py-10 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
             <h4 class="text-xl font-bold mb-2">Color and Coaching 컬러앤코칭</h4>
-            <p class="text-gray-300 mb-4">내면의 연결, 삶의 변화</p>
-            <div class="text-sm text-gray-400 space-y-1">
-                <p>대표: 김영정</p>
-                <p>이메일: contact@colorandcoaching.com</p>
-                <p>전화번호: 070-7534-2883</p>
-                <p>사업자 등록번호: 6175900301</p>
-                <p class="mt-4">&copy; 2024 Color and Coaching. All rights reserved.</p>
-            </div>
+            <p class="text-sm text-gray-400">대표: 김영정 | 전화: 070-7534-2883 | &copy; 2024 Color and Coaching.</p>
         </div>
     </footer>
 
-
     <script>
-        // 모바일 메뉴 토글 로직
         document.getElementById('menu-button').addEventListener('click', function() {
-            var mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-
-        // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        // *주의: 문의 폼이 iframe으로 교체되었으므로, 원래의 contact-form 제출 핸들러는 제거하거나 수정해야 합니다. 
-        // 기존 HTML에는 #contact-form 이라는 ID의 form이 없었으므로, iframe을 사용하는 현재 방식에서는 아래 JS 코드는 무시됩니다.
-        // 하지만 혹시 모를 충돌을 피하기 위해 임시로 주석 처리하거나 관련 코드를 제거하는 것이 좋습니다.
-        /* document.getElementById('contact-form').addEventListener('submit', function(event) {
-             event.preventDefault(); // 기본 폼 제출 방지
-             const messageBox = document.getElementById('contact-message-box');
-             
-             // 성공 메시지 표시
-             messageBox.textContent = '문의가 성공적으로 접수되었습니다. 곧 연락드리겠습니다.';
-             messageBox.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-sm text-center font-medium';
-             messageBox.classList.remove('hidden');
-             
-             // 5초 후 메시지 숨기기
-             setTimeout(() => {
-                 messageBox.classList.add('hidden');
-             }, 5000);
-
-             this.reset(); // 폼 필드 초기화
-         }); 
-         */
     </script>
 </body>
 </html>

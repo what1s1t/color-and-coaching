@@ -7,9 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     
     <meta name="description" content="컬러앤코칭은 DISC, FIRO-B, Colour Mirrors System을 통해 개인의 자아 인식, 커플 관계, 조직 팀워크 향상을 위한 진단, 리딩, 교육 프로그램을 전문적으로 제공하는 웹사이트입니다.">
 
@@ -31,6 +29,10 @@
     </script>
 
     <style>
+        /* CSS 폰트 적용: body 전체에 Pretendard를 기본 폰트로 적용 */
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
         /* Custom Styles for Image Containers to maintain Layout */
         .img-container {
             /* 이미지 컨테이너 높이 고정 (h-40 = 10rem = 160px) */
@@ -50,7 +52,7 @@
 
     <header class="bg-white shadow-lg sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-extrabold text-warm-primary rounded-lg p-1" style="font-family: 'Gowun Batang', serif;">
+            <a href="#home" class="text-2xl font-extrabold text-warm-primary rounded-lg p-1">
                 Color and Coaching<br class="hidden sm:inline">컬러앤코칭
             </a>
             

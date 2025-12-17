@@ -19,6 +19,15 @@
                         'soft-beige': '#f5e7dc',
                         'copper-dark': '#8B4513',
                         'magenta-new': '#c32672',
+                    },
+                    animation: {
+                        'bounce-subtle': 'bounce-subtle 2s infinite',
+                    },
+                    keyframes: {
+                        'bounce-subtle': {
+                            '0%, 100%': { transform: 'translateY(-5%)' },
+                            '50%': { transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -27,7 +36,7 @@
 
     <style>
         body {
-            font-family: 'Pretendard', sans-serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
         .img-container {
             height: 10rem; 
@@ -39,21 +48,25 @@
             object-fit: cover;
             background-color: #e5e5e5; 
         }
+        /* 제목 띄어쓰기 가독성을 위한 설정 */
+        .main-logo {
+            letter-spacing: -0.02em;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-gray-900 bg-white">
 
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="text-xl sm:text-2xl font-extrabold text-warm-primary whitespace-nowrap">
-                Color and Coaching&nbsp;컬러앤코칭
+            <a href="#home" class="main-logo text-lg sm:text-xl md:text-2xl font-extrabold text-warm-primary whitespace-nowrap">
+                Color and Coaching&nbsp;&nbsp;컬러앤코칭
             </a>
             
             <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none">
                 <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
 
-            <nav class="hidden sm:flex items-center space-x-6 text-lg font-medium">
+            <nav class="hidden sm:flex items-center space-x-6 text-base md:text-lg font-medium">
                 <a href="#home" class="text-gray-600 hover:text-warm-primary transition">홈</a>
                 <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition">소개</a>
                 <a href="#services" class="text-gray-600 hover:text-warm-primary transition">서비스</a>
@@ -66,61 +79,70 @@
         </div>
         
         <div id="mobile-menu" class="hidden sm:hidden bg-white border-t">
-            <nav class="px-4 pt-2 pb-4 space-y-2">
-                <a href="#home" class="block py-2 text-gray-700 font-medium">홈</a>
-                <a href="#introduction" class="block py-2 text-gray-700 font-medium">소개</a>
-                <a href="#services" class="block py-2 text-gray-700 font-medium">서비스</a>
-                <a href="#assessments" class="block py-2 text-gray-700 font-medium">진단 도구</a>
-                <a href="#color-therapy" class="block py-2 text-gray-700 font-medium">컬러 테라피</a>
-                <a href="#contact" class="block py-3 bg-warm-primary text-white text-center font-bold rounded-lg shadow-md mt-2">교육문의</a>
+            <nav class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block py-3 text-gray-700 font-medium border-b border-gray-50">홈</a>
+                <a href="#introduction" class="block py-3 text-gray-700 font-medium border-b border-gray-50">소개</a>
+                <a href="#services" class="block py-3 text-gray-700 font-medium border-b border-gray-50">서비스</a>
+                <a href="#assessments" class="block py-3 text-gray-700 font-medium border-b border-gray-50">진단 도구</a>
+                <a href="#color-therapy" class="block py-3 text-gray-700 font-medium border-b border-gray-50">컬러 테라피</a>
+                <a href="#contact" class="block py-4 bg-warm-primary text-white text-center font-bold rounded-xl shadow-md mt-4">교육문의</a>
             </nav>
         </div>
     </header>
 
-    <section id="home" class="bg-white py-20 md:py-32 text-center border-b border-soft-beige">
+    <section id="home" class="bg-white py-16 md:py-32 text-center border-b border-soft-beige">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-6">
                 <span class="text-gray-800">당신의 성장을 위한<br class="sm:hidden"></span> <span class="text-magenta-new">컬러앤코칭</span>
             </h1>
-            <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                DISC, FIRO-B, Colour Mirrors System을 통해 <br>
-                개인, 커플, 조직의 잠재력을 일깨우는 전문 진단/솔루션을 제공합니다.
+            <p class="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                DISC, FIRO-B, Colour Mirrors System을 통해 <br class="hidden sm:inline">
+                개인, 커플, 조직의 잠재력을 일깨우는 전문 솔루션을 제공합니다.
             </p>
-            <a href="#contact" class="inline-block px-8 py-3 bg-warm-primary text-white text-lg font-semibold rounded-full shadow-xl hover:bg-copper-dark transition transform hover:scale-105">
-                문의하기
+            <a href="#contact" class="inline-block px-10 py-4 bg-warm-primary text-white text-lg font-bold rounded-full shadow-xl hover:bg-copper-dark transition transform hover:scale-105">
+                지금 상담하기
             </a>
         </div>
     </section>
 
     <section id="introduction" class="py-16 md:py-24 bg-white border-b border-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-2 text-warm-primary">김영정 대표</h2>
-            <div class="flex justify-center mb-8">
-                <a href="https://www.instagram.com/color_and_coaching/" target="_blank" class="inline-flex items-center p-1 px-3 border border-gray-200 rounded-full hover:shadow-md transition">
-                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_IG.webp?raw=true" alt="IG" class="w-6 h-6 rounded-full mr-2" onerror="this.src='https://placehold.co/24x24'">
-                    <span class="text-sm text-gray-600">@color_and_coaching</span>
-                </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3 text-warm-primary">김영정 대표</h2>
+                <div class="flex justify-center">
+                    <a href="https://www.instagram.com/color_and_coaching/" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-1.5 border border-gray-200 rounded-full hover:bg-gray-50 transition shadow-sm">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_IG.webp?raw=true" alt="IG" class="w-5 h-5 rounded-full mr-2" onerror="this.src='https://img.icons8.com/fluency/48/instagram-new.png'">
+                        <span class="text-sm font-medium text-gray-600">@color_and_coaching</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-8 rounded-2xl shadow-xl">
-                <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary">
-                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/01_intro.webp?raw=true" alt="김영정 대표" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/500x500'">
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-8 md:p-12 rounded-3xl shadow-lg">
+                <div class="flex-shrink-0 w-48 h-48 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white">
+                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/01_intro.webp?raw=true" alt="김영정 대표" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/B87333/ffffff?text=김영정+대표'">
                 </div>
 
                 <div class="md:flex-grow text-center md:text-left">
-                    <p class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+                    <p class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-6 leading-snug">
                         "내면의 빛을 발견하고,<br class="md:hidden"> 진정한 연결을 돕는 안내자"
                     </p>
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        안녕하세요, 컬러앤코칭 대표 김영정입니다. DISC, FIRO-B 등 행동 심리 분야와 Colour Mirrors System을 깊이 연구하며 개인의 성장과 관계 개선에 힘써 왔습니다.
+                    <p class="text-gray-700 mb-6 leading-relaxed text-base md:text-lg">
+                        안녕하세요, 컬러앤코칭 대표 김영정입니다. 오랜 기간 행동 심리 분야와 Colour Mirrors System을 연구하며 수많은 개인과 조직의 변화를 이끌어 왔습니다. 당신의 숨겨진 잠재력을 발견하고 삶의 주도권을 되찾는 여정에 든든한 파트너가 되겠습니다.
                     </p>
-                    <ul class="text-base text-warm-primary font-medium space-y-1 list-none md:list-disc pl-0 md:pl-5">
-                        <li>DISC/FIRO-B 전문 컨설턴트</li>
-                        <li>국제 공인 컬러 테라피스트</li>
-                        <li>마음을 치유하는 컬러 테라피 저자</li>
-                        <li class="list-none pt-2">
-                             <a href="https://product.kyobobook.co.kr/detail/S000218276890" target="_blank" class="inline-flex items-center text-sm font-bold bg-white px-3 py-1 rounded-full shadow-sm border border-warm-secondary">
-                                <span class="text-gray-800">마음을 치유하는 컬러 테라피 (교보문고)</span>
+                    <ul class="text-base text-warm-primary font-bold space-y-2 list-none">
+                        <li class="flex items-center justify-center md:justify-start">
+                            <span class="mr-2">✔</span> DISC / FIRO-B 전문 컨설턴트
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <span class="mr-2">✔</span> 국제 공인 컬러 테라피스트 & 티처
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <span class="mr-2">✔</span> 도서 [마음을 치유하는 컬러 테라피] 저자
+                        </li>
+                        <li class="pt-4 flex justify-center md:justify-start">
+                             <a href="https://product.kyobobook.co.kr/detail/S000218276890" target="_blank" class="flex items-center bg-white px-4 py-2 rounded-xl shadow-md border border-warm-secondary hover:shadow-lg transition">
+                                <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_book.webp?raw=true" alt="Book" class="w-8 h-8 mr-3" onerror="this.src='https://img.icons8.com/fluency/48/book.png'">
+                                <span class="text-gray-800 text-sm md:text-base">도서 상세정보 (교보문고)</span>
                              </a>
                         </li>
                     </ul>
@@ -129,27 +151,117 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 md:py-24 bg-warm-primary">
-        <div class="max-w-4xl mx-auto px-4 text-center text-white">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을 시작하세요</h2>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" 
-               target="_blank" 
-               class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-2xl font-extrabold rounded-full shadow-2xl transition transform hover:scale-105">
-                문의하기
-            </a>
+    <section id="services" class="py-16 md:py-24 bg-soft-beige/30">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">주요 서비스</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="img-container rounded-xl mb-4">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/02_self.webp?raw=true" alt="자아 인식" class="replaceable-img">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">개인 자아 인식</h3>
+                    <p class="text-gray-600 text-sm">자신의 행동 패턴과 강점, 숨겨진 잠재력을 발견하는 맞춤 솔루션</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="img-container rounded-xl mb-4">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/03_couple.webp?raw=true" alt="커플 관계" class="replaceable-img">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">커플 관계 개선</h3>
+                    <p class="text-gray-600 text-sm">상대방의 욕구를 이해하고 건강한 소통 방식을 찾는 관계 강화 프로그램</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="img-container rounded-xl mb-4">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/04_team.webp?raw=true" alt="조직 팀워크" class="replaceable-img">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">조직 팀워크 향상</h3>
+                    <p class="text-gray-600 text-sm">팀 역동성 분석을 통해 최적의 협업 모델을 제시하는 조직 컨설팅</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="img-container rounded-xl mb-4">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/05_lecture.webp?raw=true" alt="강의" class="replaceable-img">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">맞춤형 강의 및 워크숍</h3>
+                    <p class="text-gray-600 text-sm">기업과 그룹의 특성에 맞춘 실전 중심의 행동 심리 및 컬러 교육</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-copper-dark py-10 text-white text-center">
-        <div class="max-w-7xl mx-auto px-4">
-            <h4 class="text-xl font-bold mb-2">Color and Coaching 컬러앤코칭</h4>
-            <p class="text-sm text-gray-400">대표: 김영정 | 전화: 070-7534-2883 | &copy; 2024 Color and Coaching.</p>
+    <section id="assessments" class="py-16 md:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-800">전문 진단 도구</h2>
+            <div class="space-y-16">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3 img-container rounded-2xl shadow-lg">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/06_disc.webp?raw=true" alt="DISC" class="replaceable-img">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h3 class="text-2xl font-bold text-warm-primary mb-3">DISC 행동 유형 진단</h3>
+                        <p class="text-gray-600 leading-relaxed">자신의 선호 행동 패턴을 파악하여 타인과의 효과적인 의사소통 전략을 세우는 데 필수적인 도구입니다.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="w-full md:w-1/3 img-container rounded-2xl shadow-lg">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/07_firo-b.webp?raw=true" alt="FIRO-B" class="replaceable-img">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h3 class="text-2xl font-bold text-warm-secondary mb-3">FIRO-B 관계 욕구 진단</h3>
+                        <p class="text-gray-600 leading-relaxed">인간관계에서 충족시키고자 하는 근본적인 욕구를 분석하여 관계 갈등의 원인을 파악하고 해결합니다.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3 img-container rounded-2xl shadow-lg">
+                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/08_colour.webp?raw=true" alt="Color Mirrors" class="replaceable-img">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h3 class="text-2xl font-bold text-magenta-new mb-3">Colour Mirrors System</h3>
+                        <p class="text-gray-600 leading-relaxed">색상을 통해 무의식의 심리를 분석하고 내면의 정서적 안정과 치유를 돕는 직관적인 시스템입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-warm-primary">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-5xl font-extrabold mb-8 text-white leading-tight">
+                당신의 변화를 위한<br>첫 걸음을 시작하세요
+            </h2>
+            <div class="flex justify-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" 
+                   target="_blank" 
+                   class="inline-flex items-center px-12 py-5 bg-white text-warm-primary text-2xl font-black rounded-full shadow-2xl transition transform hover:scale-105 animate-bounce-subtle">
+                   신청서 작성하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-12 text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h4 class="text-xl font-bold mb-4">Color and Coaching 컬러앤코칭</h4>
+            <div class="text-gray-400 text-sm space-y-2">
+                <p>대표: 김영정 | 이메일: contact@colorandcoaching.com</p>
+                <p>전화: 070-7534-2883 | 사업자번호: 617-59-00301</p>
+                <p class="pt-4">&copy; 2024 Color and Coaching. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        document.getElementById('menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // 모바일 메뉴 제어
+        const menuBtn = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 링크 클릭 시 메뉴 닫기
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     </script>
 </body>

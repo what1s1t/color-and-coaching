@@ -284,6 +284,40 @@
         </div>
     </section>
 
+<section id="bottle-selection" class="py-16 bg-white border-b border-soft-beige">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 break-keep">병을 하나 선택해 보세요.</h2>
+            <p class="text-lg text-warm-primary font-medium">컬러의 세계로 들어가게 됩니다.</p>
+        </div>
+
+        <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 md:gap-4">
+            </div>
+    </div>
+</section>
+
+<div id="bottle-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" onclick="if(event.target === this) closeModal()">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all animate-in fade-in zoom-in duration-300">
+        <div class="p-8 text-center relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="w-24 h-48 mx-auto mb-6 drop-shadow-xl">
+                <img id="modal-image" src="" alt="선택한 병" class="w-full h-full object-contain">
+            </div>
+            <p id="modal-number" class="text-warm-secondary font-bold text-sm tracking-widest mb-1"></p>
+            <h3 id="modal-name" class="text-2xl font-extrabold text-gray-900 mb-4 break-keep"></h3>
+            <div class="h-px w-12 bg-soft-beige mx-auto mb-6"></div>
+            <p id="modal-message" class="text-gray-700 leading-relaxed break-keep text-left text-sm sm:text-base mb-8 min-h-[100px]"></p>
+            
+            <button onclick="closeModal()" class="w-full py-4 bg-warm-primary text-white font-bold rounded-xl hover:bg-copper-dark transition duration-300 shadow-lg transform active:scale-95">
+                마음속에 간직하기
+            </button>
+        </div>
+    </div>
+</div>
+    
     <section id="contact" class="py-16 md:py-24 bg-warm-primary">
         <div class="max-w-4xl mx-auto px-4 text-center text-white break-keep">
             <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을<br class="md:hidden"> 시작하세요</h2>
@@ -321,5 +355,94 @@
             });
         });
     </script>
+
+    <script>
+    (function() {
+        const SHEET_ID = '1T4rUnwviaI0t-gqTcaI5cwgKwl_UK4rFROCHDsBCnnA';
+        const GID = '56784070';
+        // 깃허브 폴더 경로 (이미지 파일명이 bot1.jpg, bot2.jpg... 형태여야 함)
+        const GITHUB_IMG_BASE = 'https://raw.githubusercontent.com/what1s1t/color-and-coaching/main/images/bottles/';
+        
+        let bottleData = [];
+
+        // 데이터 가져오기
+        async function fetchBottleData() {
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('네트워크 응답 에러');
+                const data = await response.text();
+                
+                // CSV 행 파싱 (따옴표 내 쉼표 무시 로직 적용)
+                const rows = data.split(/\r?\n/);
+                bottleData = rows.slice(1).map(row => {
+                    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(col => col.replace(/^"|"$/g, '').trim());
+                    return {
+                        num: cols[0] || '',
+                        name: cols[1] || '',
+                        message: cols[2] || ''
+                    };
+                });
+                renderBottles();
+            } catch (error) {
+                console.error('컬러 데이터 로딩 실패:', error);
+            }
+        }
+
+        // 그리드에 병 이미지 뿌리기
+        function renderBottles() {
+            const grid = document.getElementById('bottle-grid');
+            if(!grid) return;
+            
+            grid.innerHTML = ''; // 초기화
+            
+            for (let i = 1; i <= 59; i++) {
+                const div = document.createElement('div');
+                div.className = "group relative cursor-pointer transition-all duration-300 hover:-translate-y-2";
+                div.onclick = () => openModal(i);
+                
+                // bot1.jpg 형식으로 매칭 (확장자가 다르면 아래 .jpg를 수정하세요)
+                const imgSrc = `${GITHUB_IMG_BASE}bot${i}.jpg`; 
+                
+                div.innerHTML = `
+                    <div class="aspect-[1/2] overflow-hidden rounded-md bg-gray-50 flex items-center justify-center p-1">
+                        <img src="${imgSrc}" loading="lazy" alt="Bottle ${i}" 
+                             class="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-2xl transition-all"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x200?text=Bot+${i}';">
+                    </div>
+                `;
+                grid.appendChild(div);
+            }
+        }
+
+        // 모달 열기 함수
+        window.openModal = function(index) {
+            const data = bottleData[index - 1];
+            if (!data) {
+                alert('데이터를 불러오는 중입니다. 잠시만 기다려주세요.');
+                return;
+            }
+
+            document.getElementById('modal-image').src = `${GITHUB_IMG_BASE}bot${index}.jpg`;
+            document.getElementById('modal-number').innerText = `NO. ${data.num}`;
+            document.getElementById('modal-name').innerText = data.name;
+            document.getElementById('modal-message').innerText = data.message;
+            
+            const modal = document.getElementById('bottle-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        };
+
+        // 모달 닫기 함수
+        window.closeModal = function() {
+            document.getElementById('bottle-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 스크롤 복구
+        };
+
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', fetchBottleData);
+    })();
+</script>
+    
 </body>
 </html>

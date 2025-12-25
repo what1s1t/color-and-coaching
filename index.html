@@ -37,19 +37,21 @@
     </script>
 
     <style>
-        .img-container {
-           width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+       .img-container {
+        width: 100%; 
+        height: auto; 
         overflow: hidden;
-        }
-        .replaceable-img {
-           width: 100%;
-        height: auto;
-        display: block;
-        object-fit: contain;
-        }
+        background-color: transparent; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .replaceable-img {
+        width: 100%;
+        height: auto;     
+        display: block;   
+        object-fit: contain; 
+    }
         .break-keep { word-break: keep-all; }
         html { scroll-behavior: smooth; }
     </style>
@@ -291,8 +293,8 @@
     <section id="bottle-selection" class="py-16 md:py-24 bg-white border-b border-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 break-keep">병을 하나 선택해 보세요</h2>
-                <p class="text-lg text-warm-primary font-xl">당신이 선택한 컬러가 오늘의 메시지를 전해줍니다</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 break-keep leading-tight">병을 하나 선택해 보세요</h2>
+                <p class="text-xl text-warm-primary font-bolf">당신이 선택한 컬러가 오늘의 메시지를 전해줍니다</p>
             </div>
             <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 md:gap-4">
                 <!-- JS에서 생성 -->

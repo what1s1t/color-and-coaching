@@ -37,21 +37,16 @@
     </script>
 
     <style>
-       .img-container {
-        width: 100%; 
-        height: auto; 
-        overflow: hidden;
-        background-color: transparent; 
-        display: flex;
-        flex-direction: column;
-    }
-
-    .replaceable-img {
-        width: 100%;
-        height: auto;     
-        display: block;   
-        object-fit: contain; 
-    }
+        .img-container {
+            height: 10rem; 
+            overflow: hidden;
+        }
+        .replaceable-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #e5e5e5; 
+        }
         .break-keep { word-break: keep-all; }
         html { scroll-behavior: smooth; }
     </style>
@@ -293,7 +288,7 @@
     <section id="bottle-selection" class="py-16 md:py-24 bg-white border-b border-soft-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 break-keep leading-none">병을 하나 선택해 보세요</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 break-none">병을 하나 선택해 보세요</h2>
                 <p class="text-xl text-warm-primary font-bold">당신이 선택한 컬러가 오늘의 메시지를 전해줍니다</p>
             </div>
             <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 md:gap-4">

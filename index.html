@@ -437,25 +437,23 @@
         ];
 
         // 병 그리드 생성 함수
-       const grid = document.getElementById('bottle-grid');
-if(!grid) return;
-grid.innerHTML = '';
-for (let i = 1; i <= 59; i++) {
-    const div = document.createElement('div');
-    // 상자 느낌을 주는 bottle-item 클래스 대신 최소한의 설정만 남깁니다.
-    div.className = "group cursor-pointer flex flex-col items-center justify-center";
-    div.onclick = () => openModal(i);
-    
-    div.innerHTML = `
-        <div class="w-full h-auto flex items-center justify-center bg-transparent">
-            <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
-                 class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                 onerror="handleImageError(this, ${i})">
-        </div>
-        <p class="text-[10px] mt-1 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">${i}</p>
-    `;
-    grid.appendChild(div);
-}
+        function renderBottles() {
+            const grid = document.getElementById('bottle-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            for (let i = 1; i <= 59; i++) {
+                const div = document.createElement('div');
+                div.className = "bottle-item group cursor-pointer";
+                div.onclick = () => openModal(i);
+                
+                div.innerHTML = `
+                    <div class="aspect-[1/2] overflow-hidden rounded-md bg-gray-50 flex items-center justify-center p-1 border border-gray-100 shadow-sm group-hover:shadow-md">
+                        <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
+                             class="w-full h-full object-contain drop-shadow-sm group-hover:drop-shadow-lg transition-all"
+                             onerror="handleImageError(this, ${i})">
+                    </div>
+                `;
+                grid.appendChild(div);
             }
         }
 

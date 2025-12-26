@@ -50,21 +50,17 @@
         .break-keep { word-break: keep-all; }
         html { scroll-behavior: smooth; }
 
-       #bottle-selection {
+        #bottle-selection {
     background: transparent !important;
     border: none !important;
 }
 #bottle-selection .max-w-7xl {
-    max-width: 1280px !important;
+    max-width: 1000px;
 }
 #bottle-grid > div {
     background: transparent !important;
-    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-}
-#bottle-grid img {
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
     </style>
     
@@ -301,7 +297,8 @@
         </div>
     </section>
     
-  <section id="bottle-selection" class="py-16 md:py-24 bg-transparent">
+ <!-- [병 선택 섹션] -->
+  <section id="bottle-selection" class="py-8 md:py-12 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1 break-none">병을 하나 선택해 보세요</h2>
@@ -316,7 +313,7 @@
     <section id="contact" class="py-16 md:py-24 bg-warm-primary">
         <div class="max-w-4xl mx-auto px-4 text-center text-white break-keep">
             <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을<br class="md:hidden"> 시작하세요</h2>
-            <p class="text-lg sm:text-xl mb-10 opacity-90">개인, 커플, 조직 모두 환영합니다 <br>아래 버튼을 눌러 문의 내용을 남겨주시면<br class="md:hidden"> 빠른 시일 내에 연락드리겠습니다</p>
+            <p class="text-lg sm:text-xl mb-10 opacity-90">개인, 커플, 조직 모두 환영합니다. <br>아래 버튼을 눌러 문의 내용을 남겨주시면<br class="md:hidden"> 빠른 시일 내에 연락드리겠습니다.</p>
             <div class="flex justify-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-xl sm:text-2xl font-extrabold rounded-full shadow-2xl transition duration-300 transform hover:scale-105">
                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -436,24 +433,70 @@
             { num: "59", name: "G8 계몽 (Illumination)", message: "무의식 속 어두운 그림자나 유전적인 카르마의 굴레에 갇혀 자신의 본질적인 위대함을 보지 못하고 위축되어 있는 상태입니다. 이 에너지는 당신의 가장 깊은 어둠 속으로 들어가 그곳조차 사랑이었음을 깨닫게 함으로써, 두려움을 빛으로 변형시키는 궁극적인 해방을 선물합니다. 당신은 무의식의 창조자에서 이제 깨어난 의식의 창조자가 되었으니, 모든 블록을 걷어내고 당신의 절대적인 웅장함과 명료함을 세상에 드러내세요." }
         ];
         
-       function renderBottles() {
-    const grid = document.getElementById('bottle-grid');
-    if(!grid) return;
-    grid.innerHTML = '';
-    for (let i = 1; i <= 59; i++) {
-        const div = document.createElement('div');
-        div.className = "bottle-item group cursor-pointer flex items-center justify-center";
-        div.onclick = () => openModal(i);
-        
-        div.innerHTML = `
-            <div class="w-full aspect-[1/2] flex items-center justify-center">
-                <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
-                     class="w-full h-full object-contain transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-2xl"
-                     onerror="handleImageError(this, ${i})">
-            </div>
-        `;
-        grid.appendChild(div);
-    }
-}
+        // 병 그리드 생성 함수
+        function renderBottles() {
+            const grid = document.getElementById('bottle-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            for (let i = 1; i <= 59; i++) {
+                const div = document.createElement('div');
+                div.className = "bottle-item group cursor-pointer";
+                div.onclick = () => openModal(i);
+                
+                div.innerHTML = `
+                    <div class="aspect-[1/2] overflow-hidden rounded-md bg-gray-50 flex items-center justify-center p-1 border border-gray-100 shadow-sm group-hover:shadow-md">
+                        <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
+                             class="w-full h-full object-contain drop-shadow-sm group-hover:drop-shadow-lg transition-all"
+                             onerror="handleImageError(this, ${i})">
+                    </div>
+                `;
+                grid.appendChild(div);
+            }
+        }
+
+        // 이미지 로드 실패 시 다른 확장자 시도
+        function handleImageError(img, index) {
+            if (img.src.endsWith('.png')) {
+                img.src = `${GITHUB_IMG_BASE}bot${index}.jpg`;
+            } else {
+                img.src = `https://placehold.co/100x200?text=Bot+${index}`;
+                img.onerror = null;
+            }
+        }
+
+        // 모달 열기
+        window.openModal = function(index) {
+            const data = bottleData[index - 1];
+            if (!data) return;
+
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = `${GITHUB_IMG_BASE}bot${index}.png`;
+            modalImg.onerror = function() {
+                if (this.src.endsWith('.png')) {
+                    this.src = `${GITHUB_IMG_BASE}bot${index}.jpg`;
+                } else {
+                    this.src = `https://placehold.co/100x200?text=Bot+${index}`;
+                    this.onerror = null;
+                }
+            };
+
+            document.getElementById('modal-number').innerText = `NO. ${data.num}`;
+            document.getElementById('modal-name').innerText = data.name;
+            document.getElementById('modal-message').innerText = data.message;
+            document.getElementById('bottle-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // 모달 닫기
+        window.closeModal = function() {
+            document.getElementById('bottle-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        // 페이지 로드 시 실행
+        window.onload = function() {
+            renderBottles();
+        };
+    </script>
 </body>
 </html>

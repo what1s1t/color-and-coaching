@@ -50,17 +50,21 @@
         .break-keep { word-break: keep-all; }
         html { scroll-behavior: smooth; }
 
-        #bottle-selection {
+       #bottle-selection {
     background: transparent !important;
     border: none !important;
 }
 #bottle-selection .max-w-7xl {
-    max-width: 1000px;
+    max-width: 1280px !important;
 }
 #bottle-grid > div {
     background: transparent !important;
+    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+}
+#bottle-grid img {
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
     </style>
     
@@ -297,8 +301,7 @@
         </div>
     </section>
     
- <!-- [병 선택 섹션] -->
-  <section id="bottle-selection" class="py-8 md:py-12 bg-transparent">
+  <section id="bottle-selection" class="py-16 md:py-24 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1 break-none">병을 하나 선택해 보세요</h2>
@@ -313,7 +316,7 @@
     <section id="contact" class="py-16 md:py-24 bg-warm-primary">
         <div class="max-w-4xl mx-auto px-4 text-center text-white break-keep">
             <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을<br class="md:hidden"> 시작하세요</h2>
-            <p class="text-lg sm:text-xl mb-10 opacity-90">개인, 커플, 조직 모두 환영합니다. <br>아래 버튼을 눌러 문의 내용을 남겨주시면<br class="md:hidden"> 빠른 시일 내에 연락드리겠습니다.</p>
+            <p class="text-lg sm:text-xl mb-10 opacity-90">개인, 커플, 조직 모두 환영합니다 <br>아래 버튼을 눌러 문의 내용을 남겨주시면<br class="md:hidden"> 빠른 시일 내에 연락드리겠습니다</p>
             <div class="flex justify-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-xl sm:text-2xl font-extrabold rounded-full shadow-2xl transition duration-300 transform hover:scale-105">
                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>

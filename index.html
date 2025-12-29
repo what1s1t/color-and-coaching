@@ -265,7 +265,7 @@
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1 break-none">병을 하나 선택해 보세요</h2>
                 <p class="text-xl text-warm-primary font-bold">당신이 선택한 컬러가 오늘의 메시지를 전해줍니다</p>
             </div>
-            <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
+            <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-x-2 gap-y-1 md:gap-x-3 md:gap-y-1.5">
             </div>
         </div>
     </section>
@@ -296,7 +296,7 @@
     <div id="bottle-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all p-8 text-center relative" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
-            <div class="w-24 h-48 mx-auto mb-6 drop-shadow-xl flex items-center justify-center bg-gray-50 rounded-lg">
+            <div class="w-24 h-48 mx-auto mb-6 flex items-center justify-center bg-gray-50 rounded-lg">
                 <img id="modal-image" src="" alt="선택한 병" class="w-full h-full object-contain">
             </div>
             <p id="modal-number" class="text-warm-secondary font-bold text-sm tracking-widest mb-1"></p>
@@ -403,7 +403,7 @@
                 div.innerHTML = `
                     <div class="aspect-[1/2.2] flex items-center justify-center p-1 bg-transparent">
                         <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
-                             class="w-full h-full object-contain drop-shadow-md hover:drop-shadow-2xl transition-all"
+                             class="w-full h-full object-contain transition-all"
                              onerror="handleImageError(this, ${i})">
                     </div>
                 `;

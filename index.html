@@ -330,17 +330,27 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('menu-button').addEventListener('click', function() {
-            var mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+            // 메뉴 토글
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
-    </script>
+
+            // 메뉴 링크 클릭 시 메뉴 닫기
+            document.querySelectorAll('#mobile-menu a').forEach(item => {
+                item.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+    });
+</script>
+    
      <!-- 병 상세 모달 -->
     <div id="bottle-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all p-8 text-center relative" onclick="event.stopPropagation()">

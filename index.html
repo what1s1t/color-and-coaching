@@ -299,15 +299,15 @@
         </div>
     </footer>
     <div id="bottle-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" onclick="closeModal()">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all p-8 text-center relative" onclick="event.stopPropagation()">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all p-6 sm:p-8 text-center relative" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
-            <div class="w-full h-80 mx-auto mb-6 flex items-center justify-center bg-transparent rounded-lg">
+            <div class="w-full h-60 sm:h-80 mx-auto mb-6 flex items-center justify-center bg-transparent rounded-lg">
                 <img id="modal-image" src="" alt="선택한 병" class="w-full h-full object-contain">
             </div>
             <p id="modal-number" class="text-warm-secondary font-bold text-sm tracking-widest mb-1"></p>
-            <h3 id="modal-name" class="text-2xl font-extrabold text-gray-900 mb-4 break-keep"></h3>
+            <h3 id="modal-name" class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 break-keep"></h3>
             <div class="h-px w-12 bg-soft-beige mx-auto mb-6"></div>
-            <p id="modal-message" class="text-gray-700 leading-relaxed text-left text-sm sm:text-base mb-8 min-h-[100px] whitespace-pre-wrap break-keep"></p>
+            <p id="modal-message" class="text-gray-700 leading-relaxed text-left text-sm sm:text-base mb-8 min-h-[80px] whitespace-pre-wrap break-keep"></p>
             <button onclick="closeModal()" class="w-full py-4 bg-warm-primary text-white font-bold rounded-xl hover:bg-copper-dark transition shadow-lg">마음속에 간직하기</button>
         </div>
     </div>
@@ -335,6 +335,7 @@
         });
 
         const GITHUB_IMG_BASE = 'https://raw.githubusercontent.com/what1s1t/color-and-coaching/main/bottles/';
+        // bottleData 생략 (기존 데이터와 동일)
        const bottleData = [
             { num: "1", name: "태양 (The Sun - I Am)", message: "당신은 세상의 빛이자 생명력인 태양의 에너지를 품고 있으며, 자신의 가장 높은 측면과 연결된 진정한 힘을 가진 존재입니다. 현재 혼란과 우울감으로 인해 그 빛이 잠시 가려진 것처럼 느껴지겠지만, 당신 안의 신성은 결코 사라지지 않습니다. 이제 모든 두려움을 정화하고 기쁨의 에너지를 회복하여, 당신 앞의 세상을 찬란하게 밝히는 당당한 삶을 살아가게 될 것입니다." },
             { num: "2", name: "달 (The Moon - I Feel)", message: "당신은 존재의 순환을 이해하고 자신의 말에 책임을 질 줄 아는 평화롭고 신중한 소통의 능력을 갖추고 있습니다. 지금은 자신의 목소리를 내는 것이 두렵고 감정적으로 보호받고 싶은 시기일 수 있으나, 푸른 망토의 보호 아래 당신은 이미 충분히 안전합니다. 지금까지 당신을 지켜온 믿음이 앞으로도 계속될 것이니, 고요한 확신 속에서 당신만의 진실을 아름답게 전하게 될 것입니다." },
@@ -409,7 +410,7 @@
                     <div class="aspect-[1/1.4] flex items-center justify-center p-0.5 bg-transparent">
                         <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
                              class="w-full h-full object-contain transition-all"
-                             onerror="handleImageError(this, ${i})">
+                             onerror="handleImageError(this, i)">
                     </div>
                 `;
                 grid.appendChild(div);
@@ -425,9 +426,28 @@
             }
         }
 
+        // --- 수정된 모달 열기 및 횟수 제한 로직 ---
         window.openModal = function(index) {
+            const MAX_CHANCES = 3;
+            const today = new Date().toDateString();
+            
+            // 로컬 스토리지에서 데이터 가져오기
+            let visitData = JSON.parse(localStorage.getItem('bottleGameData')) || { date: today, count: 0 };
+
+            // 날짜가 바뀌었으면 카운트 초기화
+            if (visitData.date !== today) {
+                visitData = { date: today, count: 0 };
+            }
+
+            // 횟수 제한 체크 (3번 초과 시)
+            if (visitData.count >= MAX_CHANCES) {
+                alert("내일 또 방문해 주세요");
+                return;
+            }
+
             const data = bottleData[index - 1];
             if (!data) return;
+
             const modalImg = document.getElementById('modal-image');
             modalImg.src = `${GITHUB_IMG_BASE}bot${index}.png`;
             modalImg.onerror = function() {
@@ -438,11 +458,16 @@
                     this.onerror = null;
                 }
             };
+
             document.getElementById('modal-number').innerText = `NO. ${data.num}`;
             document.getElementById('modal-name').innerText = data.name;
             document.getElementById('modal-message').innerText = data.message;
             document.getElementById('bottle-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+
+            // 성공적으로 열렸을 때만 카운트 증가 및 저장
+            visitData.count += 1;
+            localStorage.setItem('bottleGameData', JSON.stringify(visitData));
         };
 
         window.closeModal = function() {

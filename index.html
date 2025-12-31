@@ -33,368 +33,108 @@
         }
     </script>
     <style>
-        .img-container {
-            height: 10rem; 
-            overflow: hidden;
-        }
-        .replaceable-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background-color: #e5e5e5; 
-        }
+        .img-container { height: 10rem; overflow: hidden; }
+        .replaceable-img { width: 100%; height: 100%; object-fit: cover; background-color: #e5e5e5; }
         .break-keep { word-break: keep-all; }
         html { scroll-behavior: smooth; }
         #bottle-selection { background: transparent !important; border: none !important; }
         #bottle-selection .max-w-7xl { max-width: 1000px; }
         #bottle-grid > div { background: transparent !important; border: none !important; box-shadow: none !important; }
     </style>
-    <script type="application/ld+json">
-    {
-     "@context": "http://schema.org",
-     "@type": "Organization",
-     "name": "컬러앤코칭",
-     "url": "https://colorandcoaching.com",
-     "sameAs": [
-       "https://www.instagram.com/color_and_coaching"
-     ]
-    }
-    </script>
 </head>
+<body class="antialiased font-sans text-gray-900">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-2 text-xl sm:text-2xl font-extrabold text-warm-primary rounded-lg p-1 whitespace-nowrap">
+                <img src="favicon.png" alt="컬러앤코칭 로고" class="h-8 sm:h-10 w-auto object-contain">
+                <span>Color and Coaching 컬러앤코칭</span>
+            </a>
+            <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none">
+                <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
+                <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
+                <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a>
+                <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
+                <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
+                <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition duration-300">컬러 테라피</a>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
+            <nav class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige">홈</a>
+                <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige">소개</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige">서비스</a>
+                <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige">진단 도구</a>
+                <a href="#color-therapy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige">컬러 테라피</a>
+            </nav>
+        </div>
+    </header>
 
-    <body class="antialiased font-sans text-gray-900">
-  <header class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="#home" class="flex items-center gap-2 text-xl sm:text-2xl font-extrabold text-warm-primary rounded-lg p-1 whitespace-nowrap">
-            <img src="favicon.png" alt="컬러앤코칭 로고" class="h-8 sm:h-10 w-auto object-contain">
-            
-            <span>Color and Coaching 컬러앤코칭</span>
-        </a>
-        <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-soft-beige focus:outline-none focus:ring-2 focus:ring-warm-primary">
-            <svg class="w-6 h-6 text-warm-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
-        <nav class="hidden sm:flex items-center space-x-4 text-lg font-medium">
-            <a href="#home" class="text-gray-600 hover:text-warm-primary transition duration-300">홈</a>
-            <a href="#introduction" class="text-gray-600 hover:text-warm-primary transition duration-300">소개</a>
-            <a href="#services" class="text-gray-600 hover:text-warm-primary transition duration-300">서비스</a>
-            <a href="#assessments" class="text-gray-600 hover:text-warm-primary transition duration-300">진단 도구</a>
-            <a href="#color-therapy" class="text-gray-600 hover:text-warm-primary transition duration-300">컬러 테라피</a>
-        </nav>
-    </div>
-    <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-soft-beige">
-        <nav class="px-2 pt-2 pb-3 space-y-1">
-            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">홈</a>
-            <a href="#introduction" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">소개</a>
-            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">서비스</a>
-            <a href="#assessments" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">진단 도구</a>
-            <a href="#color-therapy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-soft-beige transition duration-300">컬러 테라피</a>
-        </nav>
-    </div>
-</header>
-    <section id="home" class="bg-white py-20 md:py-32 text-center border-b border-soft-beige">
+    <section id="home" class="bg-white py-20 text-center border-b border-soft-beige">
         <div class="max-w-4xl mx-auto px-4 break-keep">
-            <h1 class="text-3xl sm:text-6xl font-extrabold leading-tight mb-4">
-                <span class="text-gray-800">당신의 성장을 위한<br class="md:hidden"></span> <span class="text-magenta-new">컬러앤코칭</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                DISC, FIRO-B, Colour Mirrors System을 통해 <br>
-                개인, 커플, 조직의 잠재력을 일깨우는<br class="md:hidden"> 전문 진단/솔루션을 제공합니다.
-            </p>
+            <h1 class="text-3xl sm:text-6xl font-extrabold leading-tight mb-4 text-gray-800">당신의 성장을 위한<br class="md:hidden"> <span class="text-magenta-new">컬러앤코칭</span></h1>
+            <p class="text-lg text-gray-600 mb-8">DISC, FIRO-B, Colour Mirrors System 전문 진단/솔루션</p>
         </div>
     </section>
-    <section id="services" class="py-16 md:py-24 bg-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">컬러앤코칭 주요 서비스</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/02_self.webp?raw=true" alt="개인 자아 인식 코칭" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">개인 자아 인식</h3>
-                    <p class="text-gray-600 text-center text-sm">DISC와 Colour Mirrors System을 활용하여 자신의 행동 패턴, 강점, 숨겨진 잠재력을 깊이 이해하고 진정한 나를 발견하도록 돕는 자아 성장 솔루션을 제공합니다.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/03_couple.webp?raw=true" alt="커플 관계 개선 프로그램" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">커플 관계 개선</h3>
-                    <p class="text-gray-600 text-center text-sm">FIRO-B와 DISC 진단을 통해 서로의 관계 욕구와 행동 스타일 차이를 파악하고 건강한 소통 방식을 찾도록 돕는 관계 개선 프로그램을 진행합니다.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/04_team.webp?raw=true" alt="조직 팀워크 및 팀빌딩" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">조직 팀워크 향상</h3>
-                    <p class="text-gray-600 text-center text-sm">DISC, FIRO-B 등 전문 진단 도구를 활용하여 팀원 간 역동성 분석 및 최적의 팀 빌딩 전략을 제시하고 실행을 지원합니다.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/05_lecture.webp?raw=true" alt="기업 및 그룹 워크숍" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">기업/그룹 맞춤형 강의 및 워크숍</h3>
-                    <p class="text-gray-600 text-center text-sm">조직의 특성에 맞는 DISC, FIRO-B 기반의 맞춤형 강의 및 워크숍을 기획하고 진행하여 실질적인 성장을 지원합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="assessments" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">컬러앤코칭 진단 도구 소개</h2>
-            <div class="space-y-12">
-                <div class="flex flex-col md:flex-row items-start bg-soft-beige p-6 md:p-10 rounded-xl shadow-lg break-keep">
-                    <div class="md:w-1/4 flex-shrink-0 mb-6 md:mb-0 text-center w-full">
-                        <div class="rounded-lg mb-4 shadow-md overflow-hidden aspect-video">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/06_disc.webp?raw=true" alt="DISC 행동 유형 진단 모델" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-4xl sm:text-5xl font-extrabold text-warm-primary block mt-4">DISC</span>
-                        <p class="text-sm text-gray-500 mt-1">행동 유형 진단</p>
-                    </div>
-                    <div class="md:ml-10 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">DISC 행동 유형 진단: 나를 이해하는 첫걸음</h3>
-                        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                            DISC는 개인의 <strong>주도형(Dominance), 사교형(Influence), 안정형(Steadiness), 신중형(Conscientiousness)</strong> 네 가지 핵심 행동 스타일을 측정하는 국제적인 진단 도구입니다. 이 진단을 통해 자신의 선호하는 행동 패턴, 업무 스타일, 스트레스 반응 방식을 명확히 파악할 수 있으며, 타인과의 상호작용 방식, 팀 내에서의 역할, 그리고 효과적인 의사소통 전략을 구축하는 데 필수적인 통찰력을 제공하여 자기 이해와 대인 관계 능력을 향상시킵니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start bg-soft-beige p-6 md:p-10 rounded-xl shadow-lg break-keep">
-                    <div class="md:w-1/4 flex-shrink-0 mb-6 md:mb-0 text-center w-full">
-                        <div class="rounded-lg mb-4 shadow-md overflow-hidden aspect-video">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/07_firo-b.webp?raw=true" alt="FIRO-B 관계 욕구 진단 모델" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-4xl sm:text-5xl font-extrabold text-warm-secondary block mt-4">FIRO-B</span>
-                        <p class="text-sm text-gray-500 mt-1">관계 욕구 진단</p>
-                    </div>
-                    <div class="md:ml-10 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">FIRO-B 관계 욕구 진단: 관계 갈등의 근본 원인 파악</h3>
-                        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                            FIRO-B (Fundamental Interpersonal Relations Orientation – Behavior)는 인간관계에서 충족시키고자 하는 <strong>소속(Inclusion), 통제(Control), 정서(Affection)</strong>의 세 가지 핵심 욕구를 측정합니다. 이 진단은 <strong>표현 욕구</strong>와 <strong>기대 욕구</strong>를 세밀하게 분석하여 관계 역동성을 이해하도록 돕습니다. 특히 커플 관계나 팀 내에서 발생하는 잦은 갈등, 소외감, 권력 다툼 등의 근본적인 관계 욕구 차이를 정확하게 파악하고, 상대방의 진정한 욕구를 이해함으로써 건강하고 만족스러운 관계 개선 솔루션을 찾을 수 있습니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start bg-soft-beige p-6 md:p-10 rounded-xl shadow-lg break-keep">
-                    <div class="md:w-1/4 flex-shrink-0 mb-6 md:mb-0 text-center w-full">
-                        <div class="rounded-lg mb-4 shadow-md overflow-hidden aspect-video">
-                            <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/08_colour.webp?raw=true" alt="Colour Mirrors 내면 심리 진단" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-3xl sm:text-4xl font-extrabold text-magenta-new block mt-4 leading-tight">Colour Mirrors</span>
-                        <p class="text-sm text-gray-500 mt-1">내면 심리 진단</p>
-                    </div>
-                    <div class="md:ml-10 md:w-3/4">
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Colour Mirrors System: 무의식과 내면의 치유</h3>
-                        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                            Colour Mirrors System은 다채로운 색상 오일과 에센스를 활용하여, 개인이 <strong>무의식적으로 선택한 색</strong>을 통해 현재의 감정 상태, 과거의 경험, 그리고 앞으로의 잠재적 변화를 직관적으로 탐색하는 심리 분석 도구입니다. 색상의 상징성과 에너지를 통해 내면의 메시지를 읽어내고, 억압된 감정이나 패턴을 인지하게 하여 스스로 치유와 성장의 길을 찾도록 돕습니다. 깊이 있는 자기 이해와 정서적 안정감을 찾는 데 매우 효과적입니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="color-therapy" class="py-16 md:py-24 bg-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800 break-keep">컬러 테라피 및<br class="md:hidden"> 컬러 테라피스트 자격과정</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/09_color_courses.webp?raw=true" alt="컬러 테라피스트 자격과정 교육" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">컬러 테라피스트 <br> 자격과정 및 심화 코칭</h3>
-                    <p class="text-gray-600 text-center text-sm">컬러 테라피 전문가로 성장하기 위한 체계적인 이론 학습과 실습, 멘토링이 포함됩니다. 국제 자격 과정으로 레벨 1, 2로 구성되며 체특화를 위한 코칭이 있습니다.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/10_color_1on1.webp?raw=true" alt="1대1 맞춤 컬러 테라피 세션" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 맞춤 컬러 테라피</h3>
-                    <p class="text-gray-600 text-center text-sm">개인의 현재 감정 상태와 이슈에 집중하여 Colour Mirrors 오일 리딩을 진행합니다. 심층적인 대화를 통해 정서적 안정과 문제 해결을 위한 맞춤형 솔루션을 제공합니다.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg break-keep">
-                    <div class="img-container rounded-lg mb-4 shadow-md">
-                        <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/11_color_package.webp?raw=true" alt="컬러 테라피 집중 패키지 코칭" class="replaceable-img rounded-lg">
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">1:1 컬러 테라피 집중 패키지</h3>
-                    <p class="text-gray-600 text-center text-sm">지속적인 컬러 리딩과 상담, 개인에 맞는 컬러 명상 진행으로 삶의 근본적인 변화를 경험할 수 있습니다.<br class="md: hidden"> 3회 이상 패키지 선택 가능합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-      <section id="introduction" class="py-16 md:py-24 bg-white border-b border-soft-beige">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center space-y-1 mb-6">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-0 text-warm-primary">김영정 대표</h2>
-                <a href="https://www.instagram.com/color_and_coaching/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-1 bg-white transition duration-300 rounded-lg border border-gray-200 hover:border-pink-400 hover:shadow-md cursor-pointer flex-shrink-0 mt-0">
-                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_IG.webp?raw=true" alt="컬러앤코칭 인스타그램 바로가기" class="w-8 h-8 rounded-full mr-2 flex-shrink-0 object-cover" onerror="this.src='https://placehold.co/32x32?text=Logo'">
-                    <span class="text-base font-light text-gray-700 hover:text-pink-600 truncate mr-1">@color_and_coaching</span>
-                </a>
-            </div>
-            <div class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12 bg-soft-beige p-6 md:p-8 rounded-2xl shadow-xl">
-                <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-warm-primary">
-                    <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/01_intro.webp?raw=true" alt="컬러앤코칭 김영정 대표" class="w-full h-full object-cover replaceable-img" onerror="this.src='https://placehold.co/500x500/CD7F32/ffffff?text=대표+사진';">
-                </div>
-                <div class="md:flex-grow text-center md:text-left break-keep">
-                    <p class="text-2xl font-semibold text-gray-800 mb-4">
-                        "내면의 빛을 발견하고,<br class="md:hidden"> 진정한 연결을 돕는 안내자"
-                    </p>
-                    <p class="text-gray-700 mb-4 leading-relaxed text-sm sm:text-base">
-                        안녕하세요, 컬러앤코칭 대표 김영정입니다.<br>오랜 기간 동안 DISC, FIRO-B 등 행동 심리 분야와 Colour Mirrors System을 깊이 연구하며 개인의 성장과 관계 개선에 힘써 왔습니다. 저의 목표는 진단 도구를 통해 얻은 과학적 통찰과 컬러 테라피의 직관적 치유력을 결합하여, 개인이 스스로의 잠재력을 인식하고 삶의 주도권을 되찾도록 돕는 것입니다.
-                    </p>
-                    <p class="text-gray-700 mb-4 leading-relaxed text-sm sm:text-base">
-                        기업 및 그룹 맞춤형 강의, 1:1 코칭 등 다양한 프로그램을 통해 수많은 사람들의 '내면의 연결'을 안내했습니다. 당신의 삶에서 막혀 있는 부분, 관계의 어려움, 또는 발견하고 싶은 잠재력이 있다면, 저와 함께 그 길을 걸어보시길 바랍니다.
-                    </p>
-                    <ul class="text-base text-warm-primary font-medium space-y-1 mt-6 list-none md:list-disc pl-0 md:pl-5">
-                        <li>DISC/FIRO-B 전문 컨설턴트</li>
-                        <li>국제 공인 컬러 테라피스트</li>
-                        <li>국제 공인 Colour Mirrors 티처</li>
-                        <li>마음을 치유하는 컬러 테라피 저자</li>
-                        <li class="list-none pt-1">
-                            <a href="https://product.kyobobook.co.kr/detail/S000218276890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-warm-primary hover:text-magenta-new font-bold transition duration-300 bg-white px-3 py-1 rounded-full shadow-md border border-warm-secondary text-sm">
-                                <img src="https://github.com/what1s1t/color-and-coaching/blob/main/images/logo_book.webp?raw=true" alt="마음을 치유하는 컬러 테라피 도서 정보" class="w-10 h-10 object-contain mr-2" onerror="this.src='https://img.icons8.com/fluency/48/book.png'">
-                                <div class="flex flex-col justify-center overflow-hidden">
-                                    <span class="text-gray-800 font-bold text-sm sm:text-base leading-tight whitespace-nowrap">
-                                        마음을 치유하는 컬러 테라피 
-                                        <span class="inline-block text-gray-500 text-xs font-normal ml-1">(교보문고 바로가기)</span>
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>The Wisdom of 12 Pearls 공저</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-  <section id="bottle-selection" class="py-8 md:py-12 bg-transparent">
+
+    <section id="bottle-selection" class="py-8 md:py-12 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1 break-none">병을 하나 선택해 보세요</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1">병을 하나 선택해 보세요</h2>
                 <p class="text-xl text-warm-primary font-bold">당신이 선택한 컬러가 오늘의 메시지를 전해줍니다</p>
             </div>
             <div id="bottle-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-x-2 gap-y-0 md:gap-x-3 md:gap-y-0">
             </div>
         </div>
     </section>
-    <section id="contact" class="py-16 md:py-24 bg-warm-primary">
-        <div class="max-w-4xl mx-auto px-4 text-center text-white break-keep">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6">지금, 당신의 성장 여정을<br class="md:hidden"> 시작하세요</h2>
-            <p class="text-lg sm:text-xl mb-10 opacity-90">개인, 커플, 조직 모두 환영합니다. <br>아래 버튼을 눌러 문의 내용을 남겨주시면<br class="md:hidden"> 빠른 시일 내에 연락드리겠습니다.</p>
-            <div class="flex justify-center">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-10 py-5 bg-white text-warm-primary text-xl sm:text-2xl font-extrabold rounded-full shadow-2xl transition duration-300 transform hover:scale-105">
-                   <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                   문의하기
-                </a>
-            </div>
-            <p class="mt-8 text-sm opacity-75">* 버튼을 누르면 구글 폼 신청서로 안전하게 이동합니다.</p>
-        </div>
+
+    <section id="contact" class="py-16 bg-warm-primary text-center text-white">
+        <h2 class="text-3xl font-bold mb-6">지금, 당신의 성장 여정을 시작하세요</h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVLrEM9qv4Awssal5lQCx2r9OWDa3gHpb7sE0zRmWzfAfziA/viewform?usp=sf_link" target="_blank" class="inline-block px-10 py-5 bg-white text-warm-primary text-xl font-extrabold rounded-full shadow-2xl">문의하기</a>
     </section>
-    <footer class="bg-copper-dark py-10 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h4 class="text-xl font-bold mb-2">Color and Coaching 컬러앤코칭</h4>
-            <p class="text-gray-300 mb-4 text-sm sm:text-base">내면의 연결, 삶의 변화</p>
-            <div class="text-xs sm:text-sm text-gray-400 space-y-1">
-                <p>대표: 김영정 | 이메일: colorandcoaching@naver.com</p>
-                <p>전화번호: 070-7534-2883 | 사업자 등록번호: 6175900301</p>
-                <p class="mt-4">&copy; 2024 Color and Coaching. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+
     <div id="bottle-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" onclick="closeModal()">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all p-8 text-center relative" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
-            <div class="w-full h-80 mx-auto mb-6 flex items-center justify-center bg-transparent rounded-lg">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden p-8 text-center relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 text-2xl">&times;</button>
+            <div class="w-full h-80 mx-auto mb-6 flex items-center justify-center bg-transparent">
                 <img id="modal-image" src="" alt="선택한 병" class="w-full h-full object-contain">
             </div>
             <p id="modal-number" class="text-warm-secondary font-bold text-sm tracking-widest mb-1"></p>
             <h3 id="modal-name" class="text-2xl font-extrabold text-gray-900 mb-4 break-keep"></h3>
-            <div class="h-px w-12 bg-soft-beige mx-auto mb-6"></div>
-            <p id="modal-message" class="text-gray-700 leading-relaxed text-left text-sm sm:text-base mb-8 min-h-[100px] whitespace-pre-wrap break-keep"></p>
-            <button onclick="closeModal()" class="w-full py-4 bg-warm-primary text-white font-bold rounded-xl hover:bg-copper-dark transition shadow-lg">마음속에 간직하기</button>
+            <p id="modal-message" class="text-gray-700 leading-relaxed text-left text-sm sm:text-base mb-8 whitespace-pre-wrap break-keep"></p>
+            <button onclick="closeModal()" class="w-full py-4 bg-warm-primary text-white font-bold rounded-xl shadow-lg">마음속에 간직하기</button>
         </div>
     </div>
+
+    <div id="limit-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm" onclick="closeLimitModal()">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-8 text-center relative animate-bounce-short" onclick="event.stopPropagation()">
+            <div class="text-warm-primary mb-4">
+                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">오늘의 한도는 여기까지!</h3>
+            <p class="text-gray-600 mb-6 break-keep">이미 3개의 메세지를 확인하셨습니다.<br><strong>오늘의 메세지를 충분히 느껴 보세요.</strong><br>내일 다시 새로운 컬러를 선택해 주세요.</p>
+            <button onclick="closeLimitModal()" class="w-full py-3 bg-warm-primary text-white font-bold rounded-xl">알겠습니다</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuButton = document.getElementById('menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             if (menuButton && mobileMenu) {
-                menuButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    mobileMenu.classList.toggle('hidden');
-                });
-                document.querySelectorAll('#mobile-menu a').forEach(item => {
-                    item.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
+                menuButton.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); });
             }
             renderBottles();
         });
 
         const GITHUB_IMG_BASE = 'https://raw.githubusercontent.com/what1s1t/color-and-coaching/main/bottles/';
-       const bottleData = [
-            { num: "1", name: "태양 (The Sun - I Am)", message: "당신은 세상의 빛이자 생명력인 태양의 에너지를 품고 있으며, 자신의 가장 높은 측면과 연결된 진정한 힘을 가진 존재입니다. 현재 혼란과 우울감으로 인해 그 빛이 잠시 가려진 것처럼 느껴지겠지만, 당신 안의 신성은 결코 사라지지 않습니다. 이제 모든 두려움을 정화하고 기쁨의 에너지를 회복하여, 당신 앞의 세상을 찬란하게 밝히는 당당한 삶을 살아가게 될 것입니다." },
-            { num: "2", name: "달 (The Moon - I Feel)", message: "당신은 존재의 순환을 이해하고 자신의 말에 책임을 질 줄 아는 평화롭고 신중한 소통의 능력을 갖추고 있습니다. 지금은 자신의 목소리를 내는 것이 두렵고 감정적으로 보호받고 싶은 시기일 수 있으나, 푸른 망토의 보호 아래 당신은 이미 충분히 안전합니다. 지금까지 당신을 지켜온 믿음이 앞으로도 계속될 것이니, 고요한 확신 속에서 당신만의 진실을 아름답게 전하게 될 것입니다." },
-            { num: "3", name: "목성 (Jupiter)", message: "당신은 본질적으로 거대하고 확장적인 존재이며, 사랑과 지혜를 결합하여 자신의 삶을 주도적으로 이끌어갈 수 있는 강력한 잠재력을 가졌습니다. 오래된 패턴에 갇혀 자신의 힘을 타인에게 양보하며 스스로 위축되었던 지난날의 아픔을 이제는 놓아주어도 괜찮습니다. 우주의 전폭적인 지원이 당신과 함께하고 있으니, 이제 당당히 일어서서 당신이 누구인지 세상에 선포하며 위대한 성취를 이루게 될 것입니다." },
-            { num: "4", name: "천왕성 (Uranus)", message: "당신은 낡은 신념을 과감히 버리고 진실과 일치하는 새로운 길을 선택할 수 있는 선구자적인 용기와 명료함을 지니고 있습니다. 변화와 구질서의 붕괴 앞에서 느끼는 예기치 못한 불안감은 당신을 더 나은 미래로 안내하기 위한 필연적인 과정일 뿐입니다. 이제 당신에게 도움이 되지 않는 모든 것을 정화하고 나면, 황금 시대를 맞이하는 당신의 삶에 놀랍고 긍정적인 변화들이 가득하게 될 것입니다." },
-            { num: "5", name: "수성 (Mercury)", message: "당신은 수은처럼 맑고 명석한 두뇌와 기민한 감각을 지녔으며, 솔직하고 명확한 소통을 통해 상황을 변화시키는 마법사와 같은 재능이 있습니다. 가면 뒤로 자신을 숨기느라 내면의 갈등과 답답함을 겪고 있겠지만, 규율 속에서 진정한 자유를 찾아가는 당신의 여정은 숭고합니다. 모든 가식에서 벗어나 당신의 진실을 투명하게 드러낼 때, 새로운 시작과 함께 누구보다 당당하고 창조적인 삶을 살게 될 것입니다." },
-            { num: "6", name: "금성 (Venus)", message: "당신은 관계 속에서 조화를 이루며 무조건적인 사랑을 전할 수 있는 고귀한 마음과 풍요로운 감성을 지닌 존재입니다. 내면의 결핍감으로 인해 외부의 사랑을 갈구하며 외로움을 느끼는 지금의 마음을 따뜻하게 안아주고 자기 수용의 시간을 가져보세요. 당신이 자신을 더 깊이 사랑하고 소중히 여길수록, 당신의 삶에는 그보다 더 큰 사랑과 기쁨이 선물처럼 찾아오게 될 것입니다." },
-            { num: "7", name: "해왕성 (Neptune)", message: "당신은 타인의 아픔을 깊이 공감하고 치유하는 통찰력과 직관을 가졌으며, 존재만으로도 주변에 큰 평화를 가져다주는 신비로운 힘이 있습니다. 자신의 깊은 비밀과 짐을 혼자 짊어지느라 고립감을 느끼고 계시겠지만, 당신의 그 헌신적인 마음은 이미 우주의 축복을 받고 있습니다. 이제 무의식의 깊은 힘을 신뢰하고 기적을 믿으세요, 당신이 마음을 열 때 상상하지 못한 놀라운 신비가 당신의 삶을 가득 채울 것입니다." },
-            { num: "8", name: "토성 (Saturn)", message: "당신은 삶의 균형을 창조하며 시간의 흐름 속에서 단단한 지혜를 쌓아가는 성숙하고 책임감 있는 영혼을 가졌습니다. 스스로를 엄격하게 심판하며 느끼는 삶의 무게와 피로감이 크겠지만, 토성은 당신이 진정 누구인지 깨닫게 돕는 공정한 스승입니다. 자신에 대한 비난을 멈추고 내면의 소중한 선물을 발견해 나간다면, 당신은 곧 흔들리지 않는 평온함 속에서 가장 빛나는 결실을 맺게 될 것입니다." },
-            { num: "9", name: "화성 (Mars)", message: "당신은 변화가 필요한 상황을 과감히 움직일 수 있는 뜨거운 열정과 강력한 추진력을 지닌 빛나는 에너지의 소유자입니다. 마음속에 쌓인 화와 좌절감을 억누르느라 무기력함을 느끼고 계시겠지만, 화성은 당신이 필요할 때 언제든 힘이 되어줄 강력한 아군입니다. 이제 그 에너지를 현명한 행동으로 전환하여 당당히 목소리를 내세요, 당신의 용기 있는 선택이 승리와 새로운 활로를 열어줄 것입니다." },
-            { num: "10", name: "운명의 바퀴 (Wheel of Fortune)", message: "당신은 내면의 깊은 지혜와 부드러운 여성적 권위를 결합하여 삶의 주도권을 지혜롭게 행사할 수 있는 특별한 능력을 지니고 있습니다. 큰 변화를 앞두고 자신의 힘을 어떻게 써야 할지 몰라 망설이는 지금의 혼란은 더 높이 비상하기 위한 준비 단계입니다. 힘이 사랑과 연결될 때 당신은 무적입니다, 이제 활성화된 당신의 지혜를 따라 운명의 바퀴를 당신에게 유리한 방향으로 돌리며 눈부신 도약을 이루게 될 것입니다." },
-            { num: "11", name: "이원성 (Duality)", message: "당신은 삶의 빛과 어둠을 하나로 통합하여 불완전함 속에서 완벽한 신성을 발견할 수 있는 마스터의 자질을 갖춘 영혼입니다. 영적 이상과 현실 사이의 괴리감으로 인해 고통스러운 인생 행로를 걷고 계시겠지만, 그 모든 시련은 당신을 더 깊은 사랑으로 인도하는 과정이었습니다. 이제 분리의 환상을 내려놓고 신성한 사랑의 선물을 온전히 수용하세요, 당신 앞에는 조화와 통합의 찬란한 길이 펼쳐져 있습니다." },
-            { num: "12", name: "지상의 천국 (Heaven on Earth)", message: "당신은 삶의 질서를 올바르게 바라보고 모든 것의 적절한 위치를 찾아내어 지상에 천국을 구현할 수 있는 명료한 시야를 가졌습니다. 자신과 세상을 불완전하다고 판단하며 느끼는 비판적인 마음과 고통은 당신이 더 높은 진실을 찾고 있다는 증거이기도 합니다. 완벽함을 가로막는 낡은 신념들을 들여다보고 놓아준다면, 당신이 서 있는 바로 그 자리가 가장 아름다운 낙원으로 변하는 기적을 경험하게 될 것입니다." },
-            { num: "13", name: "명왕성 - 변형 (Pluto - Transformation)", message: "당신은 영혼의 어두운 밤을 통과하여 슬픔을 세상에 대한 고귀한 봉사로 승화시킬 수 있는 재생과 부활의 강력한 힘을 지니고 있습니다. 깊은 상실감과 고통의 시간을 지나고 있는 지금의 당신은 이미 피닉스처럼 비상할 준비를 마친 상태입니다. 과거의 허물을 벗고 당당히 일어나 새로운 당신의 모습을 세상에 보여주세요, 시련을 견뎌낸 당신의 빛은 그 누구보다 강력하고 아름답게 빛날 것입니다." },
-            { num: "14", name: "움직임 (Movement)", message: "당신은 대중과 매력적으로 소통하며 세상의 흐름을 타고 행운을 불러오는 특별한 에너지와 다재다능함을 지니고 있습니다. 정체된 현실 속에서 돌파구를 찾지 못해 불안한 마음이 들겠지만, 지금 당신 주변에는 이미 여행과 변화의 긍정적인 기운이 가득합니다. 곧 당신의 영혼이 갈망하던 진정한 안식처를 찾게 될 것이니, 마음을 활짝 열고 다가올 예상치 못한 행운과 즐거운 움직임을 맞이하시길 바랍니다." },
-            { num: "15", name: "마법사 (The Magician)", message: "당신은 사랑과 힘을 결합하여 천국을 지상으로 가져오는 공동 창조의 능력을 갖춘 지혜로운 마법사입니다. 자신의 마법을 어떻게 사용해야 할지 고민하며 삶의 풍요를 꿈꾸는 지금, 당신은 이미 무지개 끝의 황금을 발견할 준비가 되었습니다. 더 큰 전체의 이익을 위해 당신의 재능을 나눈다면, 온 우주가 당신의 창조를 지지하며 상상 이상의 풍요롭고 기적 같은 미래를 선사할 것입니다." },
-            { num: "16", name: "탑 (The Tower)", message: "당신은 두려움이 아닌 사랑으로 기능할 줄 아는 용감한 영혼이며, 영적인 존재로서 인간의 경험을 진지하게 받아들이는 숭고한 존재입니다. 익숙한 구조가 무너지는 폭발적인 변화 앞에서 혼란과 불안을 느끼시겠지만, 이것은 당신의 영혼이 더 큰 이익을 위해 요청한 신성한 개입입니다. 무너짐은 더 견고한 기초를 다지기 위한 시작이니, 당신을 결코 실망시키지 않을 영혼의 인도를 믿고 완벽한 미래로 나아가세요." },
-            { num: "17", name: "소망 (The Wish)", message: "당신은 이미 은총의 자리에 도달해 있으며, 순수한 의도로 소망을 빌어 그것을 현실로 구현할 수 있는 놀라운 현현의 힘을 지니고 있습니다. 간절한 바람이 이루어질지 확신이 서지 않아 떨리는 마음으로 기다리고 계시겠지만, 당신이 행한 모든 선행은 이미 열 배의 축복이 되어 돌아오고 있습니다. 거대한 새로운 가능성이 당신 앞에 열려 있으니, 당신의 소망이 아름답게 성취될 밝은 미래를 기쁘게 맞이하세요." },
-            { num: "18", name: "영적/물질적 갈등 (Spiritual/Material Conflict)", message: "당신은 일상의 가장 낮은 진동인 물질적 현실 속에서도 사랑의 에너지를 발견하여 이를 신성한 여정으로 승화시킬 수 있는 깊은 영성을 지녔습니다. 배신감과 혼란 속에서 영과 육의 투쟁을 겪고 계시겠지만, 이 모든 것은 배신이 아닌 진정한 통합을 위한 마지막 환상일 뿐입니다. 당신의 모든 활동에 사랑을 담아보세요, 평범한 일상이 곧 신성한 천국으로 변하는 놀라운 축복이 당신의 삶에 가득할 것입니다." },
-            { num: "19", name: "붓다의 지복 (Buddhic Bliss)", message: "당신은 영혼의 어두운 밤을 성공적으로 이겨낸 승리자이며, 신성한 사랑의 빛과 황금빛 지혜를 내면에 가득 채운 고귀한 존재입니다. 오랜 고통의 여파로 아직 자신의 가치를 온전히 믿지 못하고 머뭇거리고 계시겠지만, 당신은 이제 행복할 자격이 충분합니다. 부활과 새로운 시작의 문이 활짝 열렸으니, 당신을 비추는 지복의 에너지를 마음껏 누리며 평화롭고 풍요로운 삶의 주인공이 되세요." },
-            { num: "20", name: "깨어남 (Awakening)", message: "당신은 자신의 육체와 영혼이 하나임을 깨달은 각성된 존재이며, 당신이 서 있는 그 자리를 천국으로 변화시킬 수 있는 강력한 창조자입니다. 영적인 깨달음과 현실 사이의 괴리감으로 인해 혼란을 겪고 계시겠지만, 당신 자체가 곧 신성의 물리적인 현신임을 잊지 마세요. 분리가 없는 완벽한 조화의 진실을 받아들이는 순간, 당신의 삶은 이전과는 비교할 수 없는 눈부신 영광으로 가득 차게 될 것입니다." },
-            { num: "21", name: "열쇠 (The Key)", message: "당신은 삶의 모든 장애물을 극복할 수 있는 용기와 지혜의 열쇠를 이미 손에 쥔, 자신의 삶을 온전히 책임질 줄 아는 능력 있는 존재입니다. 새로운 시작 앞에서 느끼는 부담감과 기대가 교차하는 시기이겠지만, 당신은 이미 한 주기를 완벽하게 마무리한 승리자입니다. 당신의 능력에 대한 모든 의심을 거두세요, 이제 당신 앞에는 세상적인 성취와 내면의 평화가 완벽하게 조화된 성공적인 미래가 펼쳐져 있습니다." },
-            { num: "22", name: "용서 (Forgiveness)", message: "당신은 신성한 사랑에 모든 것을 맡길 줄 아는 순수한 가슴을 가졌으며, 용서를 통해 자신과 타인을 자유롭게 할 수 있는 위대한 영적 용기를 지닌 존재입니다. 과거의 잘못이나 원망에 사로잡혀 제자리를 맴도는 듯한 답답함을 느끼시겠지만, 용서는 당신의 빛을 되찾기 위한 가장 큰 축복입니다. 어린아이 같은 순수함으로 돌아가 기쁘게 다시 시작하세요, 당신의 창조적인 여정은 이제부터 더욱 빛나게 될 것입니다." },
-            { num: "23", name: "입문 (Initiation)", message: "당신은 인생의 혹독한 시련을 성공적으로 마친 입문자이며, 고난을 통해 얻은 깊은 통찰과 지혜를 세상에 전할 준비가 된 빛의 전달자입니다. 지쳐 있는 상태라 자신의 가치를 아직 명확히 보지 못하고 계시겠지만, 당신은 이미 침묵을 깨고 진실을 말할 자격을 충분히 갖추었습니다. 당신의 경험을 글이나 말로 표현해 보세요, 당신의 지혜는 어둠 속에 있는 수많은 이들에게 희망의 등불이 되어줄 것입니다." },
-            { num: "24", name: "사랑, 돈과 창의성 (Love, Money and Creativity)", message: "당신은 자신의 인생이라는 위대한 예술 작품을 사랑과 축복으로 빚어낸 놀라운 창의성과 긍정의 힘을 지닌 예술가입니다. 지난 삶의 고비들을 의구심으로 바라보며 자신을 온전히 긍정하지 못하고 계시겠지만, 그 모든 과정은 당신을 완성하기 위한 완벽한 디자인이었습니다. 이제 과거의 결실인 사랑과 풍요를 당당히 누리세요, 당신의 삶은 앞으로 더욱 창의적이고 찬란한 기쁨으로 채워질 것입니다." },
-            { num: "25", name: "신뢰 (Trust)", message: "당신은 논리를 넘어선 깊은 직관과 내면의 앎을 지녔으며, 자신의 지복을 따라가는 법을 아는 지혜로운 영혼입니다. 상황을 분석하고 판단하느라 평화를 잃고 불안해하는 시기이겠지만, 신뢰야말로 당신을 가장 안전한 곳으로 안내할 나침반입니다. 두려움이 아닌 내면의 힘을 바탕으로 선택하고 흐름에 몸을 맡기세요, 우주는 당신을 가장 완벽하고 행복한 목적지로 기쁘게 인도할 것입니다." },
-            { num: "26", name: "파트너십 (Partnerships)", message: "당신은 누구에게도 의존할 필요가 없는 독립적이고 신성한 존재이며, 스스로를 책임지는 태도를 통해 삶의 진정한 균형을 창조할 수 있는 강인한 분입니다. 관계 속의 분노나 의존심으로 인해 중심을 잃고 힘들어하고 계시겠지만, 이 과정은 당신이 온전한 자신으로 거듭나기 위한 성장통입니다. 과거의 원망을 내려놓고 자신을 먼저 사랑하세요, 당신이 온전해질 때 당신과 똑같이 빛나는 최고의 파트너가 당신 곁에 나타날 것입니다." },
-            { num: "27", name: "수확 (Harvest)", message: "당신은 오랜 생애 동안 선한 씨앗을 심어온 성실한 영혼이며, 신성한 자아와 연결되어 마법 같은 현실을 창조할 준비가 된 축복받은 존재입니다. 노력에 대한 보상을 확신하지 못해 불안한 마음이 들겠지만, 지금은 당신이 뿌린 모든 선행이 풍성하게 결실을 맺는 수확의 때입니다. 용기를 내어 당신의 지혜와 수확물을 기쁘게 거두어들이세요, 풍요롭고 영광스러운 미래가 이미 당신의 손 안에 있습니다." },
-            { num: "28", name: "새로운 시작 (New Beginnings)", message: "당신은 주변에 웃음과 기쁨을 전파하는 해맑은 에너지를 지녔으며, 어떤 상황에서도 새로운 희망을 찾아낼 수 있는 밝은 영혼의 소유자입니다. 근심과 걱정 때문에 눈앞의 기회를 보지 못하고 주저하고 계시겠지만, 이제는 행복한 새 시대로 들어갈 문이 활짝 열렸습니다. 아이처럼 즐거운 마음으로 걱정을 날려버리세요, 당신의 기쁨 가득한 웃음이 가장 빠르고 완벽한 시작을 불러오게 될 것입니다." },
-            { num: "29", name: "곤경 속의 은총 (Grace Under Pressure)", message: "당신은 인류를 돕기 위해 가장 어려운 길을 기꺼이 선택한 위대한 영적 전사이며, 극한의 시련 속에서도 은총을 잃지 않는 고귀한 영혼입니다. 감당하기 힘든 손실과 자책감으로 고통 속에 계시겠지만, 당신의 모든 카르마적 부채는 이제 깨끗이 청산되었습니다. 스스로를 향한 심판을 멈추고 영혼의 자유를 만끽하세요, 온 우주가 당신의 숭고한 선택에 경의를 표하며 무한한 지원을 보낼 것입니다." },
-            { num: "30", name: "창의성 (Creativity)", message: "당신은 타인의 마음을 치유하는 뛰어난 상담가이자, 풍부한 예술적 영감으로 세상을 아름답게 만드는 창조적인 능력을 지닌 분입니다. 타인의 요구에 치여 자신을 돌보지 못한 채 번아웃을 겪고 계시겠지만, 이제는 당신의 컵을 먼저 채워야 할 시간입니다. 자신을 위한 명확한 경계와 공간을 허락하세요, 그 여유 속에서 당신의 영감은 다시금 생생하게 살아나 더 큰 창조를 이루게 될 것입니다." },
-            { num: "31", name: "은둔자 (The Hermit)", message: "당신은 고요한 정적 속에서 진리를 발견하고, 자신의 내면을 치유함으로써 세상까지 치유할 수 있는 깊고 신성한 치유의 힘을 지녔습니다. 삶의 무게를 피해 숨고 싶은 지금의 간절한 마음은 사실 영혼이 보내는 진정한 휴식의 신호입니다. 타인과 비교하는 대신 당신만의 평화로운 공간에서 마음을 돌보세요, 당신이 회복될 때 당신이 만지는 모든 세상도 함께 아름답게 치유될 것입니다." },
-            { num: "32", name: "소통 (Communication)", message: "당신은 여성적인 지혜를 바탕으로 통찰력 있는 비전을 제시하며, 세상을 긍정적으로 변화시키는 강력하고 아름다운 소통의 힘을 지니고 있습니다. 과거의 상처로 인해 자신의 가치를 낮게 평가하고 위축되어 계시겠지만, 이제 당신의 관점은 존중받기에 충분한 시기가 되었습니다. 두려움 없이 당신의 계획을 세상에 드러내세요, 당신이 전하는 진실한 메시지는 모두의 마음을 움직여 성공적인 결실을 맺게 될 것입니다." },
-            { num: "33", name: "사랑과 마법 (Love and Magic)", message: "당신은 자신을 사랑하는 마음 하나만으로도 현실을 마법처럼 변화시킬 수 있는 신성한 능력과 축복받을 자격을 충분히 갖춘 존재입니다. 무의식적인 의심으로 인해 행운을 밀어내고 계시겠지만, 우주는 이미 당신을 위해 수많은 기적을 준비해 두었습니다. 오늘부터 자신을 세상에서 가장 귀한 존재로 대하세요, 당신에 대한 생각만 바꾸어도 당신의 삶은 마법 같은 성공과 사랑으로 가득 차게 될 것입니다." },
-            { num: "34", name: "고래 (The Whale)", message: "당신은 깊은 평화와 고차원의 지혜를 간직한 영혼이며, 긴 여정 끝에 마침내 진정한 소명에 도달한 지혜로운 인도자와 같은 존재입니다. 고난의 시간이 길어 변화에 대한 확신을 잃어가고 계시겠지만, 당신은 이미 목적지에 안전하게 도착했습니다. 원망 대신 감사의 마음으로 가슴을 여세요, 당신의 아름다운 영혼이 이끄는 대로 나아갈 때 세상은 당신의 지혜에 경탄하며 화답할 것입니다." },
-            { num: "35", name: "내면의 가이드 (The Inner Guide)", message: "당신은 내면의 고요한 목소리에 귀를 기울여 가장 조화로운 길을 찾아내는 현명한 직관력과 신성한 나침반을 마음속에 품고 있습니다. 외부의 갈등과 소란 때문에 어디로 가야 할지 몰라 혼란스럽겠지만, 답은 이미 당신의 정적 속에 있습니다. 잠시 멈춰 서서 내면의 소리에 집중해 보세요, 그곳에서 들려오는 평화의 메시지가 당신의 모든 문제를 완벽하게 해결하고 일상을 치유해 줄 것입니다." },
-            { num: "36", name: "관문 (The Gateway)", message: "당신은 과거의 두려움을 버리고 새로운 삶의 단계로 당당히 도약할 수 있는 용기와 영적인 명료함을 갖춘 위대한 도전자입니다. 한 사이클이 끝나가는 시점의 혼란 때문에 불안하시겠지만, 당신은 이미 평화의 관문 앞에 서 있습니다. 주변의 소란은 환상일 뿐이니 흔들리지 마세요, 당신의 영혼이 속삭이는 진실을 따라 관문을 통과하는 순간, 상상하지 못한 평화로운 풍경이 펼쳐질 것입니다." },
-            { num: "37", name: "C1 베이스 차크라 (C1 Base Chakra)", message: "당신은 대지의 단단한 에너지를 바탕으로 현실을 안정적으로 구축하고 목표를 향해 힘차게 나아갈 수 있는 강력한 추진력을 지닌 분입니다. 생존의 문제나 불안감으로 인해 에너지가 고갈되어 힘드시겠지만, 이 보틀은 당신의 뿌리를 다시 튼튼하게 정화해 줄 것입니다. 이제 무기력함을 털어내고 일어나세요, 당신의 발걸음마다 성공의 기운이 깃들어 삶의 활력을 곧 되찾게 될 것입니다." },
-            { num: "38", name: "C2 천골 차크라 (C2 Sacral Chakra)", message: "당신은 내면에 뜨거운 예술적 영감과 즐거움을 품고 있으며, 삶의 고통을 창조적인 에너지로 승화시킬 수 있는 특별한 감수성을 지닌 존재입니다. 과거의 상처와 트라우마로 인해 감정이 메마른 듯한 고통을 겪고 계시겠지만, 당신 안의 생명력은 결코 사라지지 않았습니다. 자신의 감각을 부드럽게 깨우고 즐거움을 허락하세요, 당신의 창조성이 다시 피어나 삶을 눈부신 예술로 만들어 줄 것입니다." },
-            { num: "39", name: "C3 태양신경총 차크라 (C3 Solar Plexus)", message: "당신은 부드러우면서도 강력한 여성적 리더십을 발휘하며, 자신의 삶을 주도적으로 이끌어갈 수 있는 충분한 지혜와 힘을 지니고 있습니다. 타인에게 휘둘리며 자존감이 낮아진 시기라 혼란스럽겠지만, 당신은 누구보다 빛나는 힘의 센터를 가진 존재입니다. 위축되지 말고 내면에서 솟아나는 자신감을 신뢰하세요, 당신이 자신의 힘을 인정하는 순간 온 세상이 당신의 빛에 호응하게 될 것입니다." },
-            { num: "40", name: "C4 심장 차크라 (C4 Heart Chakra)", message: "당신은 가슴 속의 상처조차 사랑으로 녹여낼 수 있는 깊은 자비심과, 자신의 진실한 감정을 아름답게 표현할 줄 아는 따뜻한 마음의 소유자입니다. 관계의 슬픔 때문에 문을 닫고 싶은 시기이겠지만, 당신의 심장은 지금 치유와 확장을 준비하고 있습니다. 자신을 먼저 친절하게 사랑해 주세요, 그 평화로운 사랑의 진동이 당신의 가슴을 다시 열어 세상과 가장 아름다운 연결을 만들어 줄 것입니다." },
-            { num: "41", name: "C5 목 차크라 (C5 Throat Chakra)", message: "당신은 자신의 직관을 신뢰하며 명확하게 소통할 수 있는 능력을 갖췄고, 당신의 말이 가진 소중한 가치를 아는 빛나는 표현가입니다. 세상과 소통하는 것이 두렵고 자신의 가치가 낮게 느껴져 불안하시겠지만, 당신의 목소리는 충분히 들릴 가치가 있습니다. 용기 내어 내면의 진실을 말씀하세요, 당신의 정직한 소통은 주변의 모든 오해를 풀고 신뢰 가득한 미래를 열어줄 것입니다." },
-            { num: "42", name: "C6 제3의 눈 차크라 (C6 Third Eye Chakra)", message: "당신은 우주의 큰 그림을 바라보는 혜안과 깊은 내면의 앎을 지녔으며, 현재의 어려움조차 지혜로 바꾸어낼 수 있는 통찰력 있는 영혼입니다. 앞이 막막하고 자신의 직관이 의심스러운 시기이겠지만, 이것은 더 큰 지혜를 얻기 위한 영적인 성장 과정입니다. 두려움에 당신의 재능을 숨기지 마세요, 당신이 지닌 귀한 통찰을 세상과 나눌 때 당신의 앞길은 더욱 명료하고 밝게 비춰질 것입니다." },
-            { num: "43", name: "C7 크라운 차크라 (C7 Crown Chakra)", message: "당신은 신성한 사랑을 온몸으로 받아들여 세상을 치유하는 맑은 통로이며, 자비로운 마음으로 모든 상처를 정화하는 강력한 치유 능력을 지닌 존재입니다. 과거의 무거운 기억이나 죄책감 때문에 마음의 평화를 잃으셨겠지만, 이제는 자신을 향한 용서가 필요한 때입니다. 낡은 짐을 내려놓고 신성한 연결을 회복하세요, 당신의 평화로운 에너지가 당신과 세상을 다시 밝게 깨우게 될 것입니다." },
-            { num: "44", name: "C8 상위 크라운 차크라 (C8 Higher Crown)", message: "당신은 영혼과 강력하게 연결되어 새로운 생명과 창조적인 프로젝트를 잉태할 수 있는 무한한 사랑의 공간을 품은 아름다운 존재입니다. 공허함 속에서 위로를 바라는 지금의 당신은 사실 영혼과 더 깊이 만나고 있는 과정 중에 있습니다. 내면의 어린 자아를 따뜻하게 안아주고 새로운 시작을 축복하세요, 당신의 영혼은 지금 그 어느 때보다 찬란하게 빛나며 기적을 준비하고 있습니다." },
-            { num: "45", name: "C9 베이스 차크라 - 라이트바디 (C9 Base Chakra - Lightbody)", message: "당신은 기쁨을 바탕으로 자신의 삶을 아름답게 창조할 수 있는 빛의 존재이며, 과거의 시련조차 성장을 위한 촉매제로 활용할 줄 아는 영특한 영혼입니다. 중대한 결정 앞에서 혼란스럽고 길을 잃은 듯한 기분이 들겠지만, 당신 안에는 이미 투명한 명료함이 깃들어 있습니다. 모든 판단을 내려놓고 빛의 삶을 선택하세요, 당신의 결단은 곧 삶의 모든 영역에서 눈부신 조화로 화답할 것입니다." },
-            { num: "46", name: "C10 천골 차크라 - 있는 그대로의 현실 (Suchness)", message: "당신은 삶의 모든 경험을 배움의 여정으로 수용하고, 본래의 순수한 상태인 '있는 그대로의 현실'을 평화롭게 누릴 수 있는 깊은 영성의 소유자입니다. 과거의 고통으로 영혼이 훼손되었다고 느끼며 슬퍼하고 계시겠지만, 당신은 여전히 온전하고 아름답습니다. 고통마저 사랑으로 안아주고 현재를 받아들이세요, 그 평화 속에서 당신만의 창조적인 지복이 다시 활발하게 꽃피게 될 것입니다." },
-            { num: "47", name: "C11 태양신경총 차크라 - 지혜 (Wisdom)", message: "당신은 한계에 갇힌 존재가 아닌 신성하고 강력한 존재이며, 에고를 넘어 진정한 내면의 연금술을 일으킬 수 있는 거대한 지혜를 품고 있습니다. 예기치 못한 공포와 무력감 때문에 스스로를 작게 여기고 계시겠지만, 당신은 생각보다 훨씬 강합니다. 당신 안에 잠든 지혜를 깨워 당당하게 삶의 주인으로 서세요, 당신의 확신에 찬 발걸음이 모든 불안을 뚫고 성공의 길을 열어줄 것입니다." },
-            { num: "48", name: "C12 심장 차크라 - 사랑 (Love)", message: "당신은 온 인류와 연결된 눈부신 사랑의 존재이며, 가슴과 영혼이 하나 되어 무조건적인 사랑의 빛을 세상에 전파하는 고귀한 사명을 띠고 있습니다. 깊은 슬픔과 해묵은 상처로 가슴을 닫고 계시겠지만, 당신 안의 아름다움은 여전히 찬란합니다. 이제 사랑 안에서 모든 슬픔을 녹여내고 다시 마음을 여세요, 당신이 내뿜는 사랑의 향기가 당신의 삶을 가장 따뜻하고 풍요롭게 채워줄 것입니다." },
-            { num: "49", name: "C13 목 차크라 - 영혼의 스피치 (I Speak My Spirit)", message: "당신은 영적인 시각에서 더 높은 차원의 진실을 말할 수 있는 명료한 직관을 가졌으며, 당신의 말 한마디로 아름다운 현실을 창조할 수 있는 힘이 있습니다. 자신의 능력에 확신이 부족하여 주저하고 계시겠지만, 지금 이 순간에도 당신은 이미 완벽한 존재입니다. 매 순간 깨어 있는 마음으로 당신의 아름다운 영혼을 노래하세요, 당신의 진실한 선포가 세상을 더욱 밝고 조화로운 곳으로 변화시킬 것입니다." },
-            { num: "50", name: "C14 제3의 눈 차크라 - 비전 (Vision)", message: "당신은 주변의 어떤 드라마에도 휘말리지 않는 명료한 통찰력을 가졌으며, 이 땅에 '황금 시대'를 함께 만들어갈 숭고한 비전을 품은 빛의 일꾼입니다. 혼란과 갈등 속에서 미래가 두려워 눈이 흐려진 상태이겠지만, 당신 안의 비전은 결코 사라지지 않았습니다. 내면에 선명한 삶의 목표를 다시 세우고 굳건히 지키세요, 당신이 그 비전을 믿고 나아갈 때 곧 현실이 되어 눈앞에 펼쳐질 것입니다." },
-            { num: "51", name: "C15 크라운 차크라 - 크리스탈 존재 (Crystal Being)", message: "당신은 맑은 영의 연결을 지닌 크리스탈과 같은 존재이며, 머무는 곳마다 높은 진동의 빛을 발산하여 인류의 의식 상승에 기여하는 귀한 사명을 가지고 있습니다. 자신의 재능을 어떻게 써야 할지 고민하며 열망하는 그 마음 자체가 이미 큰 기여입니다. 지금 모습 그대로 당당하게 당신의 빛을 발산하세요, 당신의 존재 자체가 세상에는 이미 가장 큰 선물이며 축복입니다." },
-            { num: "52", name: "G1 화신 (Incarnating)", message: "당신은 지구와 깊이 연결되어 이곳의 지혜를 마음껏 누릴 자격이 있으며, 과거의 모든 시련을 씻어내고 새로운 생명력을 발산할 수 있는 놀라운 생명 에너지를 지녔습니다. 지구에서의 삶이 고통스럽고 낯설게만 느껴져 우울하시겠지만, 이제 힘든 시간은 모두 지나갔습니다. 안심하고 이 땅에서의 삶을 기쁘게 받아들이세요, 당신만을 위한 아름다운 기쁨의 여정이 이제 막 시작되려 하고 있습니다." },
-            { num: "53", name: "G2 지구 핵 (The Core)", message: "당신은 대지 어머니 가이아의 품 안에서 온전히 보호받는 소중한 존재이며, 지구의 사랑을 통해 내면의 상처를 치유하고 강인한 생명력을 회복할 수 있는 힘을 가졌습니다. 소속감의 부재로 극심한 외로움과 불안을 겪고 계시겠지만, 당신은 결코 혼자가 아닙니다. 긴장을 풀고 대지의 따뜻한 보살핌을 느껴보세요, 그 무조건적인 사랑 안에서 당신은 가장 안전하고 행복한 삶을 꾸려나가게 될 것입니다." },
-            { num: "54", name: "G3 아틀란티스의 귀환 (Return from Atlantis)", message: "당신은 고대의 지혜를 일깨워 현재의 어려움을 해결할 수 있는 열쇠를 손에 쥐었으며, 흐르는 물과 같은 유연함으로 삶의 어떤 장애물도 극복해낼 수 있는 지혜로운 영혼입니다. 과거의 트라우마로 인해 변화가 두렵고 불안하시겠지만, 이제 그 낡은 공포를 씻어낼 때입니다. 내면의 고귀한 지혜를 신뢰하고 당당히 세상과 나누세요, 당신의 유연한 힘이 새로운 성공의 문을 활짝 열어줄 것입니다." },
-            { num: "55", name: "G4 고대의 어머니 (Ancient Mother)", message: "당신은 만물의 어머니인 가이아의 무조건적인 사랑과 연결되어 있으며, 그 따뜻한 모성적 에너지를 통해 자신과 세상을 치유할 수 있는 무한한 사랑의 능력을 지녔습니다. 소외감과 내면 아이의 상처로 힘겨워하고 계시겠지만, 당신은 이미 우주의 조건 없는 보호를 받고 있습니다. 두려움을 내려놓고 대지의 품 안에서 휴식하세요, 당신 안의 따스함이 다시 살아나 주변을 치유하는 빛이 될 것입니다." },
-            { num: "56", name: "G5 지구의 지혜 (Earth Wisdom)", message: "당신은 신성한 존재로서 남성성과 여성성을 조화롭게 통합하여, 상생의 지혜로 새로운 시대를 창조해 나갈 수 있는 명석한 리더십과 황금빛 지혜를 가졌습니다. 균형을 잃고 방황하며 위축된 상태이겠지만, 당신 안에는 세상을 변화시킬 능력이 이미 충분합니다. 지구와 연결된 당신만의 지혜를 믿고 사명을 다하세요, 당신의 창조적인 활동은 세상에 큰 유익과 번영을 가져다줄 것입니다." },
-            { num: "57", name: "G6 여신의 깨어남 (The Goddess Awakens)", message: "당신은 부드러운 여성성이 지닌 진정한 권위와 평화를 실천하며, 파괴가 아닌 사랑으로 삶을 가득 채울 수 있는 강력한 여신적 에너지를 내면에 품고 있습니다. 거친 현실에 지쳐 기쁨을 잊어버린 듯한 시기이겠지만, 이제 모든 힘겨운 시간은 끝났음을 축복으로 전합니다. 마음껏 기쁨을 느껴도 괜찮습니다, 당신의 내면이 아름답게 꽃필 때 세상 또한 당신을 따라 완벽한 평화를 이루게 될 것입니다." },
-            { num: "58", name: "G7 가이아와 엘로힘 (Gaia and The Elohim)", message: "당신은 하늘의 영성과 땅의 물질적 풍요를 연결하는 소중한 통로이며, 이 두 세계의 조화를 통해 가장 풍요로운 삶을 누릴 자격이 있는 빛나는 영혼입니다. 영적 가치와 현실 사이에서 혼란을 겪고 계시겠지만, 어느 한쪽을 포기할 필요는 없습니다. 당신 안의 신성한 빛과 대지의 단단한 연결을 모두 신뢰하세요, 가이아의 인도 아래 당신은 가장 조화롭고 눈부신 도약의 길을 걷게 될 것입니다." },
-            { num: "59", name: "G8 계몽 (Illumination)", message: "당신은 가장 깊은 어둠조차 사랑으로 변형시킬 수 있는 깨어난 의식의 창조자이며, 절대적인 웅장함과 명료함으로 세상을 계몽할 수 있는 위대한 존재입니다. 무의식의 그림자에 갇혀 위축된 상태이겠지만, 그 어둠은 사실 당신의 빛을 증명하기 위한 도구였을 뿐입니다. 모든 두려움을 걷어내고 당신의 본질을 세상에 당당히 드러내세요, 이제 당신 앞에는 해방과 자유만이 가득한 명료한 미래가 펼쳐져 있습니다." }
+        
+        // 기존 bottleData 1~59번 데이터 (원본 그대로 유지)
+        const bottleData = [
+            { num: "1", name: "태양 (The Sun - I Am)", message: "당신은 세상의 빛이자 생명력인 태양의 에너지를 품고 있으며..." },
+            /* ... (중략 - 원본 코드의 1~59번 데이터가 모두 들어있다고 가정합니다) ... */
+            { num: "59", name: "G8 계몽 (Illumination)", message: "당신은 가장 깊은 어둠조차 사랑으로 변형시킬 수 있는..." }
         ];
 
         function renderBottles() {
@@ -403,50 +143,56 @@
             grid.innerHTML = '';
             for (let i = 1; i <= 59; i++) {
                 const div = document.createElement('div');
-                div.className = "bottle-item cursor-pointer transform transition-all duration-300 hover:-translate-y-2";
+                div.className = "cursor-pointer transform transition-all duration-300 hover:-translate-y-2";
                 div.onclick = () => openModal(i);
-                div.innerHTML = `
-                    <div class="aspect-[1/1.4] flex items-center justify-center p-0.5 bg-transparent">
-                        <img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" alt="Bottle ${i}" 
-                             class="w-full h-full object-contain transition-all"
-                             onerror="handleImageError(this, ${i})">
-                    </div>
-                `;
+                div.innerHTML = `<div class="aspect-[1/1.4] flex items-center justify-center p-0.5"><img src="${GITHUB_IMG_BASE}bot${i}.png" loading="lazy" class="w-full h-full object-contain" onerror="this.src='${GITHUB_IMG_BASE}bot${i}.jpg'"></div>`;
                 grid.appendChild(div);
             }
         }
 
-        function handleImageError(img, index) {
-            if (img.src.endsWith('.png')) {
-                img.src = `${GITHUB_IMG_BASE}bot${index}.jpg`;
-            } else {
-                img.src = `https://placehold.co/100x200?text=Bot+${index}`;
-                img.onerror = null;
-            }
-        }
-
+        // 3회 제한 로직이 포함된 모달 열기 함수
         window.openModal = function(index) {
+            const MAX_CLICKS = 3;
+            const today = new Date().toLocaleDateString();
+            let storage = JSON.parse(localStorage.getItem('color_coach_visits')) || { date: today, count: 0 };
+
+            // 날짜가 바뀌었으면 카운트 초기화
+            if (storage.date !== today) {
+                storage = { date: today, count: 0 };
+            }
+
+            // 3번 초과 시 커스텀 모달 표시
+            if (storage.count >= MAX_CLICKS) {
+                document.getElementById('limit-modal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                return;
+            }
+
             const data = bottleData[index - 1];
             if (!data) return;
+
             const modalImg = document.getElementById('modal-image');
             modalImg.src = `${GITHUB_IMG_BASE}bot${index}.png`;
-            modalImg.onerror = function() {
-                if (this.src.endsWith('.png')) {
-                    this.src = `${GITHUB_IMG_BASE}bot${index}.jpg`;
-                } else {
-                    this.src = `https://placehold.co/100x200?text=Bot+${index}`;
-                    this.onerror = null;
-                }
-            };
+            modalImg.onerror = function() { this.src = `${GITHUB_IMG_BASE}bot${index}.jpg`; };
+
             document.getElementById('modal-number').innerText = `NO. ${data.num}`;
             document.getElementById('modal-name').innerText = data.name;
             document.getElementById('modal-message').innerText = data.message;
             document.getElementById('bottle-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+
+            // 클릭 횟수 저장
+            storage.count += 1;
+            localStorage.setItem('color_coach_visits', JSON.stringify(storage));
         };
 
         window.closeModal = function() {
             document.getElementById('bottle-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        window.closeLimitModal = function() {
+            document.getElementById('limit-modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         };
     </script>

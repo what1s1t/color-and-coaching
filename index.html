@@ -32,9 +32,57 @@
     <!-- ADDED TENOR SANS FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
     
-    <!-- Embedded Favicon (SVG Data URI) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Ccircle cx='20' cy='20' r='15' fill='%23B87333' /%3E%3Ccircle cx='35' cy='20' r='15' fill='%23c32672' fill-opacity='0.8' style='mix-blend-mode: multiply;' /%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='white'/%3E%3Ccircle cx='20' cy='20' r='15' fill='%23B87333' /%3E%3Ccircle cx='35' cy='20' r='15' fill='%23c32672' fill-opacity='0.8' style='mix-blend-mode: multiply;' /%3E%3C/svg%3E">
+    <!-- Dynamic Favicon/Apple Icon Generation Script -->
+    <!-- This script creates a PNG icon on the fly for mobile compatibility -->
+    <script>
+        (function() {
+            // Create a canvas to draw the logo
+            var canvas = document.createElement('canvas');
+            canvas.width = 180;
+            canvas.height = 180;
+            var ctx = canvas.getContext('2d');
+            
+            // Draw White Background (Safe for dark mode/home screens)
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 180, 180);
+            
+            // Draw Logo
+            // Scaling logic: Logo viewbox is 60x40. 
+            // We scale it 3x to fit nicely in 180x180 with centering.
+            ctx.translate(22.5, 45); // Center the 135x90 graphic in 180x180
+            ctx.scale(3, 3);
+            
+            // Circle 1 (Brown)
+            ctx.beginPath();
+            ctx.arc(20, 20, 15, 0, Math.PI * 2);
+            ctx.fillStyle = '#B87333';
+            ctx.fill();
+            
+            // Circle 2 (Pink with Multiply effect)
+            ctx.globalCompositeOperation = 'multiply';
+            ctx.beginPath();
+            ctx.arc(35, 20, 15, 0, Math.PI * 2);
+            ctx.fillStyle = '#c32672'; 
+            ctx.globalAlpha = 0.8;
+            ctx.fill();
+            
+            // Generate PNG Data URL
+            var url = canvas.toDataURL('image/png');
+            
+            // Set Apple Touch Icon (iOS)
+            var linkApple = document.createElement('link');
+            linkApple.rel = 'apple-touch-icon';
+            linkApple.href = url;
+            document.head.appendChild(linkApple);
+            
+            // Set Standard Favicon (PNG Fallback)
+            var linkIcon = document.createElement('link');
+            linkIcon.rel = 'icon';
+            linkIcon.type = 'image/png';
+            linkIcon.href = url;
+            document.head.appendChild(linkIcon);
+        })();
+    </script>
     
     <!-- JSON-LD Structured Data for Google -->
     <script type="application/ld+json">
@@ -722,6 +770,27 @@
         // --- ROUTING & NAVIGATION ---
         let savedScrollPosition = 0; // State to track scroll position for "Back" functionality
 
+        // 1. Disable browser's automatic scroll restoration to prevent conflicts
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Helper for instant scrolling (bypassing smooth scroll)
+        function instantScrollTo(y) {
+            const html = document.documentElement;
+            const originalBehavior = html.style.scrollBehavior;
+            
+            // Force auto behavior
+            html.style.scrollBehavior = 'auto';
+            window.scrollTo(0, y);
+            
+            // Restore original behavior after a tick
+            // We use a slightly longer timeout to ensure the browser has processed the jump
+            setTimeout(() => {
+                html.style.scrollBehavior = originalBehavior;
+            }, 50);
+        }
+
         // This function decides what to show based on the URL hash
         function renderView() {
             const hash = window.location.hash;
@@ -737,14 +806,13 @@
             const isHomeVisible = !homeView.classList.contains('hidden-strict');
 
             // 1. DETAIL VIEW LOGIC
-            // If hash looks like #/service/personal, show detail
             if (hash.startsWith('#/')) {
-                // Save scroll position before hiding home view
+                // Save scroll position ONLY if we are currently on Home view
                 if (isHomeVisible) {
                     savedScrollPosition = window.scrollY;
                 }
                 
-                const key = hash.substring(2); // Remove '#/'
+                const key = hash.substring(2);
                 const data = detailsData[key];
                 
                 if (data) {
@@ -776,56 +844,39 @@
                         `;
                     }
                     
-                    // Show detail, hide home
                     homeView.classList.add('hidden-strict');
                     detailView.classList.remove('hidden-strict');
                     
-                    window.scrollTo(0, 0);
+                    // Instant scroll to top for new view
+                    instantScrollTo(0);
                     return;
                 }
             }
 
             // 2. HOME VIEW LOGIC
-            const isDetailVisible = !detailView.classList.contains('hidden-strict');
+            const wasDetailVisible = !detailView.classList.contains('hidden-strict');
             
-            // If we are currently in detail view and going back to home, switch views
             detailView.classList.add('hidden-strict');
             homeView.classList.remove('hidden-strict');
 
-            // Scroll Logic:
-            // If we are returning from Detail View to Home (via Back button or link)
-            // AND the target is the root, empty, or home anchor.
-            if (isDetailVisible && (hash === '' || hash === '#' || hash === '#home')) {
-                 // DISABLE SMOOTH SCROLL STRICTLY to ensure immediate jump
-                 document.documentElement.style.setProperty('scroll-behavior', 'auto', 'important');
-                 
-                 window.scrollTo(0, savedScrollPosition);
-                 
-                 // Re-enable smooth scroll after a short delay
-                 setTimeout(() => {
-                    document.documentElement.style.removeProperty('scroll-behavior');
-                 }, 50);
+            // Logic: Returning from Detail to Home (Back button or Home link)
+            if (wasDetailVisible) {
+                 // Restore position instantly
+                 instantScrollTo(savedScrollPosition);
                  return;
             }
 
-            // If hash is like #services, scroll to section
+            // Logic: Navigation within Home Page (e.g. clicking header links)
             if (hash.length > 1 && !hash.startsWith('#/')) {
                 const targetId = hash.substring(1);
                 const element = document.getElementById(targetId);
                 if (element) {
-                    // Use a small timeout to ensure the DOM is visible and layout is calculated
                     setTimeout(() => {
                         element.scrollIntoView({ behavior: 'smooth' });
                     }, 50);
                 }
             } else if (hash === '' || hash === '#home') {
-                // If it's a fresh load or explicit Home click (not back navigation from detail), scroll to top
-                // We check !isDetailVisible, but we just set homeView visible above.
-                // However, the `isDetailVisible` variable captures state BEFORE the switch.
-                // If `isDetailVisible` was false (meaning we were already on home), and we click Home, we scroll to top.
-                if (!isDetailVisible) {
-                     window.scrollTo(0, 0);
-                }
+                // Default behavior for home
             }
         }
 
